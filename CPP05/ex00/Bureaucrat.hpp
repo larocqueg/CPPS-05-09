@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 19:05:35 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/10/03 19:05:37 by gde-la-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string>
 #include <iostream>
 #include <exception>
@@ -29,32 +41,36 @@ class Bureaucrat
 	  class gradeTooHighException : public std::exception
 	  {
 	    public:
-		    const char* what() const throw() {
-			    return  "Grade too high!";
-		  }
+		    const char* what() const throw()
+        {
+			    return  "Bureaucrat grade is too high!";
+		    }
 	  };
 
 	  class gradeTooLowException : public std::exception
 	  {
 	    public:
-		    const char* what() const throw() {
-			    return "Grade too low!";
-		  }
+		    const char* what() const throw()
+        {
+			    return "Bureaucrat grade is too low!";
+		    }
 	  };
 
 	  class cannotIncrementException : public std::exception
 	  {
 	    public:
-		    const char* what() const throw() {
-			    return  "Grade cannot be higher than 1!";
-		  }
+		    const char* what() const throw()
+        {
+			    return  "Bureaucrat grade cannot be higher than 1!";
+		    }
 	  };
 
 	  class cannotDecrementException : public std::exception
 	  {
 	    public:
-		    const char* what() const throw() {
-			    return  "Grade cannot be lower than 150!";
-		  }
+		    const char* what() const throw()
+        {
+			    return  "Bureaucrat grade cannot be lower than 150!";
+		    }
 	  };
 };

@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/03 19:05:43 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/10/03 19:05:44 by gde-la-r         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include <iostream>
 
 Bureaucrat::Bureaucrat() : _name("Default")
 {
-  std::cout << CYAN << "Bureaucrat default constructor called!"
+  std::cout << GREEN << "Bureaucrat default constructor called!"
     << RESET << std::endl;
   _grade = 150;
 }
@@ -15,14 +27,14 @@ Bureaucrat::Bureaucrat(std::string& name, unsigned int grade) : _name(name)
 	if (grade > 150)
 		throw gradeTooLowException();
 	_grade = grade;
-	std::cout << CYAN << "Bureaucrat " << _name << " parameterized constructor called!"
+	std::cout << GREEN << "Bureaucrat " << _name << " parameterized constructor called!"
     << RESET << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& original) : _name(original._name)
 {
 	_grade = original._grade;
-	std::cout << CYAN << "Bureaucrat " << _name << " copy constructor called!"
+	std::cout << GREEN << "Bureaucrat " << _name << " copy constructor called!"
     << RESET << std::endl;
 }
 
@@ -30,7 +42,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& original)
 {
 	if (this != &original)
 		_grade = original._grade;
-	std::cout << CYAN << "Bureaucrat " << _name << " copy assignment operator called!"
+	std::cout << GREEN << "Bureaucrat " << _name << " copy assignment operator called!"
     << RESET << std::endl;
 	return (*this);
 }
