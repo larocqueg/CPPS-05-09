@@ -10,12 +10,12 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Animal
+NAME = Bureaucrat
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp
+SRCS = main.cpp
 OBJS_DIR = objs
 OBJS = $(SRCS:.cpp=.o)
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
