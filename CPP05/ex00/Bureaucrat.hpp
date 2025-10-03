@@ -1,34 +1,60 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/03 10:54:25 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/10/03 10:54:29 by gde-la-r         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-
 #include <string>
 #include <iostream>
+#include <exception>
+
+#define RED	 "\033[31m"
+#define YELLOW  "\033[33m"
+#define GREEN   "\033[32m"
+#define CYAN	"\033[36m"
+#define RESET   "\033[0m"
 
 class Bureaucrat
 {
-
   private:
-    int               _grade;
-    const std::string_name;
+	  unsigned int _grade;
+	  const std::string _name;
+
   public:
-    Bureaucrat();
-    Bureaucrat(std::string& name, int grade);
-    Bureaucrat(const Bureaucrat& original);
-    Bureaucrat& operator = (const Bureaucrat& original);
-    ~Bureaucrat();
+  	Bureaucrat();
+	  Bureaucrat(std::string& name, unsigned int grade);
+	  Bureaucrat(const Bureaucrat& original);
+	  Bureaucrat& operator=(const Bureaucrat& original);
+	  ~Bureaucrat();
 
-    //Getters
-    int         getGrade() const;
-    std::string getName() const;
+	  void incrementGrade();
+	  void decrementGrade();
+	  std::string getName() const;
+	  unsigned int getGrade() const;
+
+	  class gradeTooHighException : public std::exception
+	  {
+	    public:
+		    const char* what() const throw() {
+			    return  "Grade too high!";
+		  }
+	  };
+
+	  class gradeTooLowException : public std::exception
+	  {
+	    public:
+		    const char* what() const throw() {
+			    return "Grade too low!";
+		  }
+	  };
+
+	  class cannotIncrementException : public std::exception
+	  {
+	    public:
+		    const char* what() const throw() {
+			    return  "Grade cannot be higher than 1!";
+		  }
+	  };
+
+	  class cannotDecrementException : public std::exception
+	  {
+	    public:
+		    const char* what() const throw() {
+			    return  "Grade cannot be lower than 150!";
+		  }
+	  };
 };
-
