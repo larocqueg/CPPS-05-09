@@ -20,7 +20,10 @@ int main(void)
   std::cout << CYAN << "=== Testing Bureaucrat with 75 grade, AForm with 80 grade ===\n" << std::endl;
   try
   {
-    Bureaucrat  a("Gabriel", 75);
+    Bureaucrat  a("Gabriel", 1);
+    PresidentialPardonForm president("Lula");
+
+    president.execute(a);
 
   }
   catch (const std::exception& e)

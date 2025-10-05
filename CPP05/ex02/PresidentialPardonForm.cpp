@@ -24,7 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AFor
     << RESET << std::endl;
 }
 
-PresidentialPardonForm& PresidentialPardonForm& operator=(const PresidentialPardonForm& original)
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& original)
 {
   std::cout << YELLOW << "PresidentialPardonForm copy assingment operator called!"
     << RESET << std::endl;
@@ -44,10 +44,11 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void  PresidentialPardonForm::execute(const Bureaucrat& b) const
 {
-  if (b.getGrade() > this->_getExecGrade())
+  if (b.getGrade() > this->getExecGrade())
   {
     throw AForm::gradeTooLowException(
-        "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + " because grade is to low!"
-        << RESET << std::endl; 
+        "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + " because grade is to low!"); 
   }
+  std::cout << GREEN << b.getName() << " has been pardoned by Zaphod Beeblebrox."
+    << RESET << std::endl;
 }
