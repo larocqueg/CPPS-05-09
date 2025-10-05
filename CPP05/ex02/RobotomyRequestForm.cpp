@@ -38,13 +38,15 @@ void  RobotomyRequesForm::execute(const Bureaucrat& b) const
   if (b.getGrade() > this->getExecGrade())
   {
     throw AForm::gradeTooLowException(
-        "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + " because grade is to low!"); 
+        "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + ", grade is to low!"); 
   }
   if (this->getSign())
   {
+
   }
   else
   {
-    std::cerr << RED << this->getName() << " is not signed!" << RESET << std::endl;
+    throw AForm::formNotSignedException(
+        "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + ", Form not signed!");
   }
 }

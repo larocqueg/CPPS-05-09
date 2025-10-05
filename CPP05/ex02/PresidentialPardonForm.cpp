@@ -38,7 +38,7 @@ void  PresidentialPardonForm::execute(const Bureaucrat& b) const
   if (b.getGrade() > this->getExecGrade())
   {
     throw AForm::gradeTooLowException(
-        "Bureaucrat " + b.getName() + " couldn't exceute " + this->getName() + " because grade is to low!"); 
+        "Bureaucrat " + b.getName() + " couldn't exceute " + this->getName() + ", grade is to low!"); 
   }
   if (this->getSign() && b.getGrade() <= this->getExecGrade())
   {
@@ -48,6 +48,6 @@ void  PresidentialPardonForm::execute(const Bureaucrat& b) const
   else
   {
     throw AForm::formNotSignedException(
-        "Bureaucrat " + b.getName() + " couldn't execute " + this->getName() + " because grade is to low!");
+        "Bureaucrat " + b.getName() + " couldn't execute " + this->getName() + ", Form is not signed!");
   }
 }
