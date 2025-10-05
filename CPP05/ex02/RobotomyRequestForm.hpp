@@ -20,7 +20,7 @@ class RobotomyRequestForm : public AForm
 {
   private:
     const std::string _target;
-    RobotomyRequestForm& operator(const RobotomyRequestForm& original);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& original);
   public:
     RobotomyRequestForm();
     RobotomyRequestForm(const std::string target);

@@ -35,8 +35,9 @@ class AForm
 
     void                signAForm(const Bureaucrat& b);
     virtual void        execute(const Bureaucrat& b) const = 0;
-    unsigned int        getGrade() const;
-    const std::string&   getName() const;
+    unsigned int        getSignGrade() const;
+    unsigned int        getExecGrade() const;
+    const std::string&  getName() const;
   
   class gradeTooHighException : public std::exception
   {

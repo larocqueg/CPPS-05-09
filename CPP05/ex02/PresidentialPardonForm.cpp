@@ -44,5 +44,10 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void  PresidentialPardonForm::execute(const Bureaucrat& b) const
 {
-  if (b.getGrade() > this->)
+  if (b.getGrade() > this->_getExecGrade())
+  {
+    throw AForm::gradeTooLowException(
+        "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + " because grade is to low!"
+        << RESET << std::endl; 
+  }
 }

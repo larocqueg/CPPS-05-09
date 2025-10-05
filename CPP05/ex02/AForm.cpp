@@ -76,19 +76,24 @@ void  AForm::execute(const Bureaucrat& b) const
   }
   else if (!this->_signed)
   {
-    throw AForm::formNotSigned(
+    throw AForm::formNotSignedException(
         "Bureaucrat " + b.getName() + " couldn't execute " + this->_name + " because the Form is not signed!");
   }
   else
     std::cout << "Form " << this->_name << " was executed by " << b.getName() << std::endl;
 }
 
-unsigned int AForm::getGrade() const
+unsigned int AForm::getSignGrade() const
 {
-    return (_signGrade);
+    return (this->_signGrade);
+}
+
+unsigned int  AForm::getExecGrade() const
+{
+  return (this->_execGrade);
 }
 
 const std::string& AForm::getName() const
 {
-    return (_name);
+    return (this->_name);
 }
