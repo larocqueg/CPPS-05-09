@@ -13,6 +13,11 @@
 #pragma once
 
 #include "AForm.hpp"
+#include <fstream>
+#include <string>
+#include <iostream>
+#include <stdexcept>
+#include <stdint.h>
 
 class ShrubberyCreationForm : public AForm
 {
