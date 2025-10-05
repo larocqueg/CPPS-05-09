@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "Bureaucrat.hpp"
 #include <iostream>
 #include <string>
