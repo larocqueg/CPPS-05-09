@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,21 +17,21 @@
 
 class Bureaucrat;
 
-class Form
+class AForm
 {
   private:
     const std::string   _name;
     const unsigned int  _signGrade;
     const unsigned int  _execGrade;
     bool                _signed;
-    Form();
+    AForm();
   public:
-    Form(const std::string& name, unsigned int toSign, unsigned int toExec);
-    Form(const Form& original);
-    Form& operator=(const Form& original);
-    ~Form();
+    AForm(const std::string& name, unsigned int toSign, unsigned int toExec);
+    AForm(const AForm& original);
+    AForm& operator=(const AForm& original);
+    ~AForm();
 
-    void                signForm(const Bureaucrat& b);
+    void                signAForm(const Bureaucrat& b);
     unsigned int        getGrade() const;
     const std::string&   getName() const;
   
@@ -40,7 +40,7 @@ class Form
     private:
       std::string _msg;
     public:
-      gradeTooHighException() : _msg("Form: grade is too high!") {}
+      gradeTooHighException() : _msg("AForm: grade is too high!") {}
       gradeTooHighException(const std::string& msg) : _msg(msg) {}
       virtual const char* what() const throw() { return _msg.c_str(); }
       virtual ~gradeTooHighException() throw() {}
@@ -51,7 +51,7 @@ class Form
     private:
       std::string _msg;
     public:
-      gradeTooLowException() : _msg("Form: grade is too low!") {}
+      gradeTooLowException() : _msg("AForm: grade is too low!") {}
       gradeTooLowException(const std::string& msg) : _msg(msg) {}
       virtual const char* what() const throw() { return _msg.c_str(); }
       virtual ~gradeTooLowException() throw() {}
