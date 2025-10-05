@@ -17,49 +17,32 @@
 
 int main(void)
 {
-  std::cout << CYAN << "=== Testing Bureaucrat with 75 grade, AForm with 80 grade ===\n" << std::endl;
+  std::cout << CYAN << "=== Testing high grade Bureaucrat with PresidentialPardonForm ===\n" << std::endl;
   try
   {
     Bureaucrat  a("Gabriel", 1);
     PresidentialPardonForm president("Lula");
 
+    president.signAForm(a);
     president.execute(a);
-
-  }
-  catch (const std::exception& e)
-  {
-    std::cerr << RED << e.what() << std::endl;
-  }
- 
-  std::cout << CYAN << "\n===  Testing Bureaucrat with 80 grade, AForm with 60 grade ===\n" << std::endl;
-  try
-  {
-    Bureaucrat  c("Leonardo", 80);
-    
-  }
-  catch (const std::exception& e)
-  {
-    std::cerr << RED << e.what() << RESET << std::endl;
-  }
-
-  std::cout << CYAN << "\n===  Testing grade to low AForm ===\n";
-  try
-  {
-
   }
   catch (const std::exception& e)
   {
     std::cerr << RED << e.what() << std::endl;
   }
 
-  std::cout << CYAN << "\n===  Testing grade to high AForm ===\n" << std::endl;
+  std::cout << CYAN << "\n=== Testing low grade Bureaucrat with PresidentialPardonForm ===\n" << std::endl;
   try
   {
+    Bureaucrat a("Fernando", 26);
+    PresidentialPardonForm president("Bolsonaro");
 
+    president.signAForm(a);
+    president.execute(a);
   }
   catch (const std::exception& e)
   {
-    std::cerr << RED << e.what() << RESET << std::endl;
+    std::cerr << RED << e.what() << std::endl;
   }
   std::cout << std::endl;
 	return (0);

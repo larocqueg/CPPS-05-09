@@ -38,6 +38,7 @@ class AForm
     unsigned int        getSignGrade() const;
     unsigned int        getExecGrade() const;
     const std::string&  getName() const;
+    bool                getSign() const;
   
   class gradeTooHighException : public std::exception
   {

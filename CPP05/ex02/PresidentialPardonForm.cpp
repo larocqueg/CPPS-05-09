@@ -14,21 +14,14 @@
 
 PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), _target("Default")
 {
-  std::cout << YELLOW << "PresidentialPardonForm default constructor called!"
-    << RESET << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("PresidentialPardonForm", 25, 5), _target(target)
 {
-  std::cout << YELLOW << "PresidentialPardonForm parameterized constructor called!"
-    << RESET << std::endl;
 }
 
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& original)
 {
-  std::cout << YELLOW << "PresidentialPardonForm copy assingment operator called!"
-    << RESET << std::endl;
-
   if (this != &original)
   {
     AForm::operator=(original);
@@ -38,8 +31,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPard
 
 PresidentialPardonForm::~PresidentialPardonForm()
 {
-  std::cout << RED << "PresidentialPardonForm destructor called!"
-    << RESET << std::endl;
 }
 
 void  PresidentialPardonForm::execute(const Bureaucrat& b) const
@@ -49,6 +40,13 @@ void  PresidentialPardonForm::execute(const Bureaucrat& b) const
     throw AForm::gradeTooLowException(
         "Bureaucrat " + b.getName() + " couldn't exeute " + this->getName() + " because grade is to low!"); 
   }
-  std::cout << GREEN << b.getName() << " has been pardoned by Zaphod Beeblebrox."
-    << RESET << std::endl;
+  if (this->getSign())
+  {
+    std::cout << GREEN << this->_target << " has been pardoned by Zaphod Beeblebrox."
+      << RESET << std::endl;
+  }
+  else
+  {
+    std::cerr << RED << this->getName() << " is not signed!" << RESET << std::endl;
+  }
 }

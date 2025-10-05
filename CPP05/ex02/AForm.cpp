@@ -15,13 +15,11 @@
 AForm::AForm() 
     : _name("Default"), _signGrade(150), _execGrade(150), _signed(false)
 {
-    std::cout << YELLOW << "AForm " << this->_name << " constructor called!" << RESET << std::endl;
 }
 
 AForm::AForm(const std::string& name, unsigned int toSign, unsigned int toExec) 
     : _name(name), _signGrade(toSign), _execGrade(toExec), _signed(false)
 {
-    std::cout << YELLOW << "AForm " << this->_name << " parameterized constructor called!" << RESET << std::endl;
 
     if (name.empty())
         std::cerr << RED << "AForm: no name given!" << std::endl;
@@ -34,7 +32,6 @@ AForm::AForm(const std::string& name, unsigned int toSign, unsigned int toExec)
 AForm::AForm(const AForm& original) 
     : _name(original._name), _signGrade(original._signGrade), _execGrade(original._execGrade), _signed(original._signed)
 {
-    std::cout << YELLOW << "AForm " << this->_name << " copy constructor called!" << RESET << std::endl;
 }
 
 AForm& AForm::operator=(const AForm& original)
@@ -46,7 +43,6 @@ AForm& AForm::operator=(const AForm& original)
 
 AForm::~AForm()
 {
-    std::cout << RED << "AForm " << this->_name << " destructor called!" << RESET << std::endl;
 }
 
 void AForm::signAForm(const Bureaucrat& b)
@@ -96,4 +92,9 @@ unsigned int  AForm::getExecGrade() const
 const std::string& AForm::getName() const
 {
     return (this->_name);
+}
+
+bool  AForm::getSign() const
+{
+  return (this->_signed);
 }
