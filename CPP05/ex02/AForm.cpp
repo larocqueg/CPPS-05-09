@@ -63,7 +63,7 @@ void AForm::signAForm(const Bureaucrat& b)
     }
     else
     {
-        std::cout << GREEN << b.getName() << " successfully signed !" this->_name << std::endl;
+        std::cout << GREEN << b.getName() << " successfully signed " << this->_name << std::endl;
         this->_signed = true;
     }
 }
