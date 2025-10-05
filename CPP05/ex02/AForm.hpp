@@ -34,6 +34,7 @@ class AForm
     ~AForm();
 
     void                signAForm(const Bureaucrat& b);
+    virtual void        execute(const Bureaucrat& b) const = 0;
     unsigned int        getGrade() const;
     const std::string&   getName() const;
   
@@ -57,6 +58,17 @@ class AForm
       gradeTooLowException(const std::string& msg) : _msg(msg) {}
       virtual const char* what() const throw() { return _msg.c_str(); }
       virtual ~gradeTooLowException() throw() {}
+  };
+  
+  class formNotSignedException : public std::exception
+  {
+    private:
+      std::string _msg;
+    public:
+      formNotSignedException() : _msg("AForm: grade is too low!") {}
+      formNotSignedException(const std::string& msg) : _msg(msg) {}
+      virtual const char* what() const throw() { return _msg.c_str(); }
+      virtual ~formNotSignedException() throw() {}
   };
 
 };

@@ -21,9 +21,7 @@ int main(void)
   try
   {
     Bureaucrat  a("Gabriel", 75);
-    AForm        b("AForm1", 80, 80);
 
-    b.signAForm(a);
   }
   catch (const std::exception& e)
   {
@@ -34,9 +32,7 @@ int main(void)
   try
   {
     Bureaucrat  c("Leonardo", 80);
-    AForm        d("AForm2", 60, 60);
     
-    d.signAForm(c);
   }
   catch (const std::exception& e)
   {
@@ -46,7 +42,7 @@ int main(void)
   std::cout << CYAN << "\n===  Testing grade to low AForm ===\n";
   try
   {
-    AForm  e("AForm3", 151, 151);
+
   }
   catch (const std::exception& e)
   {
@@ -56,7 +52,7 @@ int main(void)
   std::cout << CYAN << "\n===  Testing grade to high AForm ===\n" << std::endl;
   try
   {
-    AForm  f("AForm4", 0, 0);
+
   }
   catch (const std::exception& e)
   {

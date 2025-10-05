@@ -13,8 +13,20 @@
 #pragma once
 
 #include "AForm.hpp"
+#include <ctime>
+#include <cstdlib>
 
 class RobotomyRequestForm : public AForm
 {
+  private:
+    const std::string _target;
+    RobotomyRequestForm& operator(const RobotomyRequestForm& original);
+  public:
+    RobotomyRequestForm();
+    RobotomyRequestForm(const std::string target);
+    RobotomyRequestForm(const RobotomyRequestForm& original);
+    ~RobotomyRequestForm();
 
+    void  execute(const Bureaucrat& b) const;
+    const std::string& getTarget() const;
 };

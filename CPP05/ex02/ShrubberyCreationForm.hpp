@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 13:11:09 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/10/05 13:12:46 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/10/05 13:13:15 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/10/05 13:13:31 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,15 @@
 
 class ShrubberyCreationForm : public AForm
 {
+  private:
+    const std::string _target;
+    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& original);
+  public:
+    ShrubberyCreationForm();
+    ShrubberyCreationForm(const std::string& target);
+    ShrubberyCreationForm(const ShrubberyCreationForm& original);
+    ~ShrubberyCreationForm();
+
+    void  execute(const Bureaucrat& b) const;
+    const std::string& getTarget() const;
 };

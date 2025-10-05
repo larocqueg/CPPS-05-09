@@ -58,14 +58,29 @@ void AForm::signAForm(const Bureaucrat& b)
     else if (b.getGrade() > this->_signGrade)
     {
         throw AForm::gradeTooLowException(
-            "Bureaucrat " + b.getName() + " couldn't sign " + this->_name + " because grade is too low!"
-        );
+            "Bureaucrat " + b.getName() + " couldn't sign " + this->_name + " because grade is too low!");
     }
     else
     {
         std::cout << GREEN << b.getName() << " successfully signed " << this->_name << std::endl;
         this->_signed = true;
     }
+}
+
+void  AForm::execute(const Bureaucrat& b) const
+{
+  if (b.getGrade() > this->_execGrade)
+  {
+    throw AForm::gradeTooLowException(
+        "Bureaucrat " + b.getName() + " couldn't execute " + this->_name + " because grade is to low!");
+  }
+  else if (!this->_signed)
+  {
+    throw AForm::formNotSigned(
+        "Bureaucrat " + b.getName() + " couldn't execute " + this->_name + " because the Form is not signed!");
+  }
+  else
+    std::cout << "Form " << this->_name << " was executed by " << b.getName() << std::endl;
 }
 
 unsigned int AForm::getGrade() const
