@@ -59,5 +59,6 @@ int main(void)
   {
     std::cerr << RED << e.what() << RESET << std::endl;
   }
+  std::cout << std::endl;
 	return (0);
 }
