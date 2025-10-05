@@ -42,8 +42,6 @@ void  ShrubberyCreationForm::execute(const Bureaucrat& b) const
   }
   if (this->getSign())
   {
-    std::cout << GREEN << this->_target << " has been pardoned by Zaphod Beeblebrox."
-      << RESET << std::endl;
   }
   else
   {
