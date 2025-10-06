@@ -31,7 +31,7 @@ class AForm
     AForm(const std::string& name, unsigned int toSign, unsigned int toExec);
     AForm(const AForm& original);
     AForm& operator=(const AForm& original);
-    ~AForm();
+    virtual ~AForm();
 
     void                signAForm(const Bureaucrat& b);
     virtual void        execute(const Bureaucrat& b) const = 0;

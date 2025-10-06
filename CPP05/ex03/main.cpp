@@ -43,7 +43,7 @@ int main(void)
   std::cout << CYAN << "\n=== Testing ShrubberyCreationForm via Intern ===\n" << RESET << std::endl;
   try
   {
-    two = souless->makeForm("ShrubberyCreationForm", "Bonsai");
+    two = souless->makeForm("ShrubberyCreationForm", "Tree.txt");
     two->signAForm(a);
     two->execute(a);
   }
