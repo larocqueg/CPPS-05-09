@@ -42,7 +42,7 @@ void  RobotomyRequestForm::execute(const Bureaucrat& b) const
   }
   if (this->getSign())
   {
-    if (rand() % 2 == 0)
+    if (std::rand() % 2 == 0)
     {
       std::cout << GREEN << "BZZZZZZZT VRRRRRRRRMMM GRRRRRRRRRRRRRR!" << this->_target << " has been robotomized!"
         << RESET << std::endl;
