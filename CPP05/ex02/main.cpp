@@ -17,15 +17,16 @@
 
 int main(void)
 {
-
+  std::srand(std::time(NULL));
+  
   std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
   try
   {
     Bureaucrat a("Vinicius", 146);
-    ShrubberyCreationForm three("Three.txt");
+    ShrubberyCreationForm tree("tree.txt");
 
-    three.signAForm(a);
-    three.execute(a);
+    tree.signAForm(a);
+    tree.execute(a);
   }
   catch (const std::exception& e)
   {
@@ -36,10 +37,10 @@ int main(void)
   try
   {
     Bureaucrat a("Leonardo", 145);
-    ShrubberyCreationForm three("Three.txt");
+    ShrubberyCreationForm tree("Tree.txt");
 
-    three.signAForm(a);
-    three.execute(a);
+    tree.signAForm(a);
+    tree.execute(a);
   }
   catch (const std::exception& e)
   {
@@ -50,10 +51,10 @@ int main(void)
   try
   {
     Bureaucrat  a("Gabriel", 130);
-    ShrubberyCreationForm three("Three.txt");
+    ShrubberyCreationForm tree("tree.txt");
 
-    three.signAForm(a);
-    three.execute(a);
+    tree.signAForm(a);
+    tree.execute(a);
   }
   catch (const std::exception& e)
   {
@@ -120,7 +121,7 @@ int main(void)
   try
   {
     Bureaucrat a("Leonardo", 25);
-    PresidentialPardonForm president("three.txt");
+    PresidentialPardonForm president("tree.txt");
 
     president.signAForm(a);
     president.execute(a);

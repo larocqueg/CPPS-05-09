@@ -35,6 +35,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void  RobotomyRequestForm::execute(const Bureaucrat& b) const
 {
+  int randval = std::rand() % 2;
   if (b.getGrade() > this->getExecGrade())
   {
     throw AForm::gradeTooLowException(
@@ -42,9 +43,9 @@ void  RobotomyRequestForm::execute(const Bureaucrat& b) const
   }
   if (this->getSign())
   {
-    if (rand() % 2 == 0)
+    if (randval == 0)
     {
-      std::cout << GREEN << "BZZZZZZZT VRRRRRRRRMMM GRRRRRRRRRRRRRR!" << this->_target << " has been robotomized!"
+      std::cout << GREEN << "BZZZZZZZT VRRRRRRRRMMM GRRRRRRRRRRRRRR! " << this->_target << " has been robotomized!"
         << RESET << std::endl;
     }
     else
