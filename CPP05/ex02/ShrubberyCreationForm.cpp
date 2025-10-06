@@ -42,6 +42,7 @@ void  ShrubberyCreationForm::execute(const Bureaucrat& b) const
   }
   if (this->getSign() && b.getGrade() <= this->getExecGrade())
   {
+    std::cout << GREEN << "Bureaucrat " << b.getName() << " executed ShrubberyCreationForm and created " << this->_target << RESET << std::endl;
     std::ofstream file(this->_target.c_str());
     file << "                                                                                                                               \n\
                                                                       ....      ..  ..                                                      \n\
@@ -102,7 +103,7 @@ void  ShrubberyCreationForm::execute(const Bureaucrat& b) const
                                   --          ..------::::++++++++----::++++::::------------mmmm--............                              \n\
                                 ..--------::::::++------::::------------::::++::..----------..........------------                          \n\
                             ----------::::::--..............------------------------------------------------                                \n\
-                                  ------------------------------------------------------------------------  Gabriel\n";
+                                  ------------------------------------------------------------------------  gde-la-r\n";
   }
   else
   {

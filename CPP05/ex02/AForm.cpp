@@ -54,7 +54,7 @@ void AForm::signAForm(const Bureaucrat& b)
     else if (b.getGrade() > this->_signGrade)
     {
         throw AForm::gradeTooLowException(
-            "Bureaucrat " + b.getName() + " couldn't sign " + this->_name + " because grade is too low!");
+            "Bureaucrat " + b.getName() + " couldn't sign " + this->_name + ", grade is too low!");
     }
     else
     {

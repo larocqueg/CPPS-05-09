@@ -17,21 +17,92 @@
 
 int main(void)
 {
-  std::cout << CYAN << "=== Testing high grade to sign Bureaucrat with PresidentialPardonForm ===\n" << std::endl;
+
+  std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat  a("Gabriel", 1);
-    PresidentialPardonForm president("gde-la-r");
+    Bureaucrat a("Vinicius", 146);
+    ShrubberyCreationForm three("Three.txt");
 
-    president.signAForm(a);
-    president.execute(a);
+    three.signAForm(a);
+    three.execute(a);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << RESET << std::endl;
+  }
+
+  std::cout << CYAN << "\n=== Testing low grade to execute grade Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
+  try
+  {
+    Bureaucrat a("Leonardo", 145);
+    ShrubberyCreationForm three("Three.txt");
+
+    three.signAForm(a);
+    three.execute(a);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << RESET << std::endl;
+  }
+
+  std::cout << CYAN << "\n=== Testing high grade to sign && execute Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
+  try
+  {
+    Bureaucrat  a("Gabriel", 130);
+    ShrubberyCreationForm three("Three.txt");
+
+    three.signAForm(a);
+    three.execute(a);
   }
   catch (const std::exception& e)
   {
     std::cerr << RED << e.what() << std::endl;
   }
 
-  std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat with PresidentialPardonForm ===\n" << std::endl;
+  std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat RobotomyRequestForm ===" << RESET << std::endl;
+  try
+  {
+    Bureaucrat a("Fernando", 73);
+    RobotomyRequestForm robot("Cortana");
+
+    robot.signAForm(a);
+    robot.execute(a);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << RESET << std::endl;
+  }
+
+  std::cout << CYAN << "\n=== Testing low grade to execute grade Bureaucrat RobotomyRequestForm ===" << RESET << std::endl;
+  try
+  {
+    Bureaucrat a("Leonardo", 46);
+    RobotomyRequestForm robot("Cortana");
+
+    robot.signAForm(a);
+    robot.execute(a);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << RESET << std::endl;
+  }
+
+  std::cout << CYAN << "\n=== Testing high grade to sign && execute Bureaucrat RobotomyRequestForm ===" << RESET << std::endl;
+  try
+  {
+    Bureaucrat  a("Gabriel", 45);
+    RobotomyRequestForm robot("Cortana");
+
+    robot.signAForm(a);
+    robot.execute(a);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << std::endl;
+  }
+  
+  std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat PresidentialPardonForm ===" << RESET << std::endl;
   try
   {
     Bureaucrat a("Fernando", 26);
@@ -45,33 +116,34 @@ int main(void)
     std::cerr << RED << e.what() << RESET << std::endl;
   }
 
-  std::cout << CYAN << "\n=== Testing high grade to sign Bureaucrat with ShrubberyCreationForm ===\n";
+  std::cout << CYAN << "\n=== Testing low grade to execute grade Bureaucrat PresidentialPardonForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Leonardo", 1);
-    ShrubberyCreationForm shrubbery("three.txt");
+    Bureaucrat a("Leonardo", 25);
+    PresidentialPardonForm president("three.txt");
 
-    shrubbery.signAForm(a);
-    shrubbery.execute(a);
+    president.signAForm(a);
+    president.execute(a);
   }
   catch (const std::exception& e)
   {
     std::cerr << RED << e.what() << RESET << std::endl;
   }
-  
-  std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat with ShrubberyCreationForm ===\n";
+
+  std::cout << CYAN << "\n=== Testing high grade to sign && execute Bureaucrat PresidentialPardonForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Vinicius", 150);
-    ShrubberyCreationForm shrubbery("three.txt");
+    Bureaucrat  a("Gabriel", 1);
+    PresidentialPardonForm president("gde-la-r");
 
-    shrubbery.signAForm(a);
-    shrubbery.execute(a);
+    president.signAForm(a);
+    president.execute(a);
   }
   catch (const std::exception& e)
   {
-    std::cerr << RED << e.what() << RESET << std::endl;
+    std::cerr << RED << e.what() << std::endl;
   }
+
   std::cout << std::endl;
 	return (0);
 }

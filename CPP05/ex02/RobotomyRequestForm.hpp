@@ -23,7 +23,7 @@ class RobotomyRequestForm : public AForm
     RobotomyRequestForm& operator=(const RobotomyRequestForm& original);
   public:
     RobotomyRequestForm();
-    RobotomyRequestForm(const std::string target);
+    RobotomyRequestForm(const std::string& target);
     RobotomyRequestForm(const RobotomyRequestForm& original);
     ~RobotomyRequestForm();
 
