@@ -27,6 +27,7 @@ int main(void)
   AForm *three = NULL;
   AForm *four = NULL;
   Bureaucrat a("Gabriel", 1);
+  std::cout << "\n" << a << "\n" << std::endl;
 
   std::cout << CYAN << "\n=== Testing invalid Form name via Intern ===\n" << RESET << std::endl;
   try
