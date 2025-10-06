@@ -32,6 +32,7 @@ int main(void)
   try
   {
     one = souless->makeForm("42", "Norminette");
+    std::cout << "\n" << *one << std::endl;
     one->signAForm(a);
     one->execute(a);
   }
@@ -44,6 +45,7 @@ int main(void)
   try
   {
     two = souless->makeForm("ShrubberyCreationForm", "Tree.txt");
+    std::cout << "\n" << *two << std::endl;
     two->signAForm(a);
     two->execute(a);
   }
@@ -56,6 +58,7 @@ int main(void)
   try
   {
     three = souless->makeForm("PresidentialPardonForm", "Lula");
+    std::cout << "\n" << *three << std::endl;
     three->signAForm(a);
     three->execute(a);
   }
@@ -68,6 +71,7 @@ int main(void)
   try
   {
     four = souless->makeForm("RobotomyRequestForm", "Cortana");
+    std::cout << "\n" << *four << std::endl;
     four->signAForm(a);
     four->execute(a);
   }

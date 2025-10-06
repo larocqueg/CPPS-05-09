@@ -74,3 +74,5 @@ class AForm
   };
 
 };
+
+std::ostream& operator<<(std::ostream& os, const AForm& form);

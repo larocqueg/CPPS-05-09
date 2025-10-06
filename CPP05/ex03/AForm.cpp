@@ -98,3 +98,12 @@ bool  AForm::getSign() const
 {
   return (this->_signed);
 }
+
+std::ostream& operator<<(std::ostream& os, const AForm& form)
+{
+    os << YELLOW "AForm name: " <<  RESET << form.getName() << std::endl 
+       << YELLOW "Signed: " << RESET << (form.getSign() ? "true" : "false" ) << std::endl
+       << YELLOW "Grade to sign: " << RESET << form.getSignGrade() << std::endl
+       << YELLOW "Grade to execute: " << RESET << form.getExecGrade() << std::endl;
+    return (os);
+}

@@ -30,7 +30,7 @@ class Bureaucrat
 
   public:
   	Bureaucrat();
-	  Bureaucrat(std::string& name, unsigned int grade);
+	  Bureaucrat(const std::string& name, unsigned int grade);
 	  Bureaucrat(const Bureaucrat& original);
 	  Bureaucrat& operator=(const Bureaucrat& original);
 	  ~Bureaucrat();
@@ -77,4 +77,4 @@ class Bureaucrat
 	  };
 };
 
-std::ostream& operator<<(std::ostream& out, const Bureaucrat& object);
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
