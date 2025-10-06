@@ -21,6 +21,7 @@ int main(void)
     Form        b("Form1", 80, 80);
 
     b.signForm(a);
+    std::cout << "\n" << b << std::endl;
   }
   catch (const std::exception& e)
   {

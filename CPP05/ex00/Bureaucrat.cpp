@@ -76,3 +76,9 @@ unsigned int Bureaucrat::getGrade() const
 {
 	return (_grade);
 }
+
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
+{
+  os << bureaucrat.getName() << ", bureacrat grade " << bureaucrat.getGrade();
+  return (os);
+}

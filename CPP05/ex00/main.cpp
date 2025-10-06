@@ -21,9 +21,9 @@ int main(void)
   try
 	{
 		Bureaucrat a(aName, 150);
-		std::cout << CYAN << "Bureaucrat " << a.getName() << " grade is " << a.getGrade()
-      << RESET << std::endl;
+    std::cout << a << std::endl;
     a.decrementGrade();
+    std::cout << a << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -37,9 +37,11 @@ int main(void)
   try
   {
     Bureaucrat d(dName, 1);
+    std::cout << d << std::endl;
     std::cout << CYAN << "Bureaucrat " << d.getName() << " grade is " << d.getGrade()
       << RESET << std::endl;
     d.incrementGrade();
+    std::cout << d << std::endl;
   }
   catch (const std::exception& e)
   {
@@ -53,8 +55,7 @@ int main(void)
 	try
 	{
 		Bureaucrat b(bName, 0);
-		std::cout << CYAN << "Bureaucrat " << b.getName() << " grade is " << b.getGrade()
-      << RESET << std::endl;
+    std::cout << b << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -68,8 +69,7 @@ int main(void)
 	try
 	{
 		Bureaucrat c(cName, 151);
-		std::cout << CYAN << "Bureaucrat " << c.getName() << " grade is " << c.getGrade()
-      << RESET << std::endl;
+    std::cout << c << std::endl;
 	}
 	catch (const std::exception& e)
 	{

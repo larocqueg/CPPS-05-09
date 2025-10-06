@@ -73,7 +73,26 @@ unsigned int Form::getGrade() const
     return (_signGrade);
 }
 
+unsigned int Form::getEGrade() const
+{
+  return (_execGrade);
+}
+
 const std::string& Form::getName() const
 {
     return (_name);
+}
+
+bool  Form::isSigned() const
+{
+  return (_signed);
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& form)
+{
+    os << YELLOW "Form name: " <<  RESET << form.getName() << std::endl 
+       << YELLOW "Signed: " << RESET << (form.isSigned() ? "true" : "false" ) << std::endl
+       << YELLOW "Grade to sign: " << RESET << form.getGrade() << std::endl
+       << YELLOW "Grade to execute: " << RESET << form.getEGrade() << std::endl;
+    return (os);
 }
