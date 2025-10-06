@@ -18,6 +18,7 @@ int main(void)
   try
   {
     Bureaucrat  a("Gabriel", 75);
+    std::cout << a << std::endl;
     Form        b("Form1", 80, 80);
 
     b.signForm(a);
@@ -32,6 +33,7 @@ int main(void)
   try
   {
     Bureaucrat  c("Leonardo", 80);
+    std::cout << c << std::endl;
     Form        d("Form2", 60, 60);
     
     d.signForm(c);
