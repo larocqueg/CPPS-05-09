@@ -20,7 +20,7 @@ Bureaucrat::Bureaucrat() : _name("Default")
   _grade = 150;
 }
 
-Bureaucrat::Bureaucrat(std::string& name, unsigned int grade) : _name(name)
+Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : _name(name)
 {
 	if (grade < 1)
 		throw gradeTooHighException();

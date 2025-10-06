@@ -25,6 +25,7 @@ int main(void)
     Bureaucrat a("Vinicius", 146);
     ShrubberyCreationForm tree("tree.txt");
 
+    std::cout << "\n" << tree << std::endl;
     tree.signAForm(a);
     tree.execute(a);
   }
@@ -39,6 +40,7 @@ int main(void)
     Bureaucrat a("Leonardo", 145);
     ShrubberyCreationForm tree("Tree.txt");
 
+    std::cout << "\n" << tree << std::endl;
     tree.signAForm(a);
     tree.execute(a);
   }
@@ -53,6 +55,7 @@ int main(void)
     Bureaucrat  a("Gabriel", 130);
     ShrubberyCreationForm tree("tree.txt");
 
+    std::cout << "\n" << tree << std::endl;
     tree.signAForm(a);
     tree.execute(a);
   }
@@ -67,6 +70,7 @@ int main(void)
     Bureaucrat a("Fernando", 73);
     RobotomyRequestForm robot("Cortana");
 
+    std::cout << "\n" << robot << std::endl;
     robot.signAForm(a);
     robot.execute(a);
   }
@@ -81,6 +85,7 @@ int main(void)
     Bureaucrat a("Leonardo", 46);
     RobotomyRequestForm robot("Cortana");
 
+    std::cout << "\n" << robot << std::endl;
     robot.signAForm(a);
     robot.execute(a);
   }
@@ -95,6 +100,7 @@ int main(void)
     Bureaucrat  a("Gabriel", 45);
     RobotomyRequestForm robot("Cortana");
 
+    std::cout << "\n" << robot << std::endl;
     robot.signAForm(a);
     robot.execute(a);
   }
@@ -109,6 +115,7 @@ int main(void)
     Bureaucrat a("Fernando", 26);
     PresidentialPardonForm president("Bolsonaro");
 
+    std::cout << "\n" << president << std::endl;
     president.signAForm(a);
     president.execute(a);
   }
@@ -123,6 +130,7 @@ int main(void)
     Bureaucrat a("Leonardo", 25);
     PresidentialPardonForm president("tree.txt");
 
+    std::cout << "\n" << president << std::endl;
     president.signAForm(a);
     president.execute(a);
   }
@@ -137,6 +145,7 @@ int main(void)
     Bureaucrat  a("Gabriel", 1);
     PresidentialPardonForm president("gde-la-r");
 
+    std::cout << "\n" << president << std::endl;
     president.signAForm(a);
     president.execute(a);
   }
