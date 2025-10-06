@@ -68,7 +68,7 @@ void  AForm::execute(const Bureaucrat& b) const
   if (b.getGrade() > this->_execGrade)
   {
     throw AForm::gradeTooLowException(
-        "Bureaucrat " + b.getName() + " couldn't execute " + this->_name + " because grade is to low!");
+        "Bureaucrat " + b.getName() + " couldn't execute " + this->_name + ", grade is to low!");
   }
   else if (!this->_signed)
   {
