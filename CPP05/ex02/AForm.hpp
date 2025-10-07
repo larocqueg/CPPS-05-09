@@ -33,7 +33,7 @@ class AForm
     AForm& operator=(const AForm& original);
     virtual ~AForm();
 
-    void                signAForm(const Bureaucrat& b);
+    void                beSigned(const Bureaucrat& b);
     virtual void        execute(const Bureaucrat& b) const = 0;
     unsigned int        getSignGrade() const;
     unsigned int        getExecGrade() const;

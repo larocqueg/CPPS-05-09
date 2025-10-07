@@ -26,7 +26,7 @@ int main(void)
     ShrubberyCreationForm tree("tree.txt");
 
     std::cout << "\n" << tree << std::endl;
-    tree.signAForm(a);
+    a.signAForm(tree);
     tree.execute(a);
   }
   catch (const std::exception& e)
@@ -41,7 +41,7 @@ int main(void)
     ShrubberyCreationForm tree("Tree.txt");
 
     std::cout << "\n" << tree << std::endl;
-    tree.signAForm(a);
+    a.signAForm(tree);
     tree.execute(a);
   }
   catch (const std::exception& e)
@@ -56,7 +56,7 @@ int main(void)
     ShrubberyCreationForm tree("tree.txt");
 
     std::cout << "\n" << tree << std::endl;
-    tree.signAForm(a);
+    a.signAForm(tree);
     tree.execute(a);
   }
   catch (const std::exception& e)
@@ -71,7 +71,7 @@ int main(void)
     RobotomyRequestForm robot("Cortana");
 
     std::cout << "\n" << robot << std::endl;
-    robot.signAForm(a);
+    a.signAForm(robot);
     robot.execute(a);
   }
   catch (const std::exception& e)
@@ -86,7 +86,7 @@ int main(void)
     RobotomyRequestForm robot("Cortana");
 
     std::cout << "\n" << robot << std::endl;
-    robot.signAForm(a);
+    a.signAForm(robot);
     robot.execute(a);
   }
   catch (const std::exception& e)
@@ -101,7 +101,7 @@ int main(void)
     RobotomyRequestForm robot("Cortana");
 
     std::cout << "\n" << robot << std::endl;
-    robot.signAForm(a);
+    a.signAForm(robot);
     robot.execute(a);
   }
   catch (const std::exception& e)
@@ -116,7 +116,7 @@ int main(void)
     PresidentialPardonForm president("Bolsonaro");
 
     std::cout << "\n" << president << std::endl;
-    president.signAForm(a);
+    a.signAForm(president);
     president.execute(a);
   }
   catch (const std::exception& e)
@@ -131,7 +131,7 @@ int main(void)
     PresidentialPardonForm president("tree.txt");
 
     std::cout << "\n" << president << std::endl;
-    president.signAForm(a);
+    a.signAForm(president);
     president.execute(a);
   }
   catch (const std::exception& e)
@@ -146,7 +146,7 @@ int main(void)
     PresidentialPardonForm president("gde-la-r");
 
     std::cout << "\n" << president << std::endl;
-    president.signAForm(a);
+    a.signAForm(president);
     president.execute(a);
   }
   catch (const std::exception& e)

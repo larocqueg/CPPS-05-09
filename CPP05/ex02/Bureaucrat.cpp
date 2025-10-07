@@ -77,6 +77,18 @@ unsigned int Bureaucrat::getGrade() const
 	return (_grade);
 }
 
+void	Bureaucrat::signAForm(AForm& form)
+{
+  try
+  {
+    form.beSigned(*this);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << RESET << std::endl;
+  }
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat)
 {
   os << bureaucrat.getName() << ", bureacrat grade " << bureaucrat.getGrade();

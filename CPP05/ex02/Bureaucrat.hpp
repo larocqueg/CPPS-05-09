@@ -15,12 +15,15 @@
 #include <string>
 #include <iostream>
 #include <exception>
+#include "AForm.hpp"
 
 #define RED	 "\033[31m"
 #define YELLOW  "\033[33m"
 #define GREEN   "\033[32m"
 #define CYAN	"\033[36m"
 #define RESET   "\033[0m"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -39,6 +42,7 @@ class Bureaucrat
 	  void decrementGrade();
 	  std::string getName() const;
 	  unsigned int getGrade() const;
+	  void	signAForm(AForm& form);
 
 	  class gradeTooHighException : public std::exception
 	  {
