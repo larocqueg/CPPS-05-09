@@ -34,7 +34,7 @@ int main(void)
   {
     one = souless->makeForm("42", "Norminette");
     std::cout << "\n" << *one << std::endl;
-    one->signAForm(a);
+    a.signAForm(*one);
     one->execute(a);
   }
   catch (const std::exception& e)
@@ -45,9 +45,9 @@ int main(void)
   std::cout << CYAN << "\n=== Testing ShrubberyCreationForm via Intern ===\n" << RESET << std::endl;
   try
   {
-    two = souless->makeForm("ShrubberyCreationForm", "Tree.txt");
+    two = souless->makeForm("ShrubberyCreationForm", "tree.txt");
     std::cout << "\n" << *two << std::endl;
-    two->signAForm(a);
+    a.signAForm(*two);
     two->execute(a);
   }
   catch (const std::exception& e)
@@ -60,7 +60,7 @@ int main(void)
   {
     three = souless->makeForm("PresidentialPardonForm", "Lula");
     std::cout << "\n" << *three << std::endl;
-    three->signAForm(a);
+    a.signAForm(*three);
     three->execute(a);
   }
   catch (const std::exception& e)
@@ -73,7 +73,7 @@ int main(void)
   {
     four = souless->makeForm("RobotomyRequestForm", "Cortana");
     std::cout << "\n" << *four << std::endl;
-    four->signAForm(a);
+    a.signAForm(*four);
     four->execute(a);
   }
   catch (const std::exception& e)

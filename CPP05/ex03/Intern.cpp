@@ -33,6 +33,8 @@ Intern::~Intern()
 
 AForm *Intern::makeForm(const std::string form, const std::string target)
 {
+  std::cout << YELLOW << "Intern is trying to create AForm " << form
+    << RESET << std::endl;
   int index = -1;
   std::string array[3] = {
     "ShrubberyCreationForm",
@@ -50,9 +52,15 @@ AForm *Intern::makeForm(const std::string form, const std::string target)
   }
   switch(index)
   {
-    case 0: return (new ShrubberyCreationForm(target));
-    case 1: return (new RobotomyRequestForm(target));
-    case 2: return (new PresidentialPardonForm(target));
-    default: throw Intern::internException("No match to " + form + " Form!");
+    case 0:
+      std::cout << GREEN << "Intern created AForm " << form << RESET << std::endl;
+      return (new ShrubberyCreationForm(target));
+    case 1:
+      std::cout << GREEN << "Intern created AForm " << form << RESET << std::endl;
+      return (new RobotomyRequestForm(target));
+    case 2:
+      std::cout << GREEN << "Intern created AForm " << form << RESET << std::endl;
+      return (new PresidentialPardonForm(target));
+    default: throw Intern::internException("No match to AForm " + form + "!");
   }
 }
