@@ -35,7 +35,8 @@ int main(void)
     Bureaucrat  c("Leonardo", 80);
     std::cout << c << std::endl;
     Form        d("Form2", 60, 60);
-    
+   
+    std::cout << "\n" << d << std::endl;
     d.signForm(c);
   }
   catch (const std::exception& e)
