@@ -23,11 +23,11 @@ int main(void)
   {
     Bureaucrat t(tName, 1);
 
-    std::cout << t << std::endl;
+    std::cout << "\n" << t << "\n" << std::endl;
     t.decrementGrade();
-    std::cout << t << std::endl;
+    std::cout << "\n" << t << "\n" << std::endl;
     t.incrementGrade();
-    std::cout << t << std::endl;
+    std::cout << "\n" << t << "\n" << std::endl;
   }
   catch (const std::exception& e)
   {
@@ -38,9 +38,9 @@ int main(void)
   try
 	{
 		Bureaucrat a(aName, 150);
-    std::cout << a << std::endl;
+    std::cout << "\n" << a << "\n" << std::endl;
     a.decrementGrade();
-    std::cout << a << std::endl;
+    std::cout << "\n" << a << "\n" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
@@ -54,11 +54,9 @@ int main(void)
   try
   {
     Bureaucrat d(dName, 1);
-    std::cout << d << std::endl;
-    std::cout << CYAN << "Bureaucrat " << d.getName() << " grade is " << d.getGrade()
-      << RESET << std::endl;
+    std::cout << "\n" << d << "\n" << std::endl;
     d.incrementGrade();
-    std::cout << d << std::endl;
+    std::cout << "\n" << d << "\n" << std::endl;
   }
   catch (const std::exception& e)
   {
@@ -86,7 +84,7 @@ int main(void)
 	try
 	{
 		Bureaucrat c(cName, 151);
-    std::cout << c << std::endl;
+    std::cout << "\n" << c << "\n" << std::endl;
 	}
 	catch (const std::exception& e)
 	{

@@ -18,11 +18,11 @@ int main(void)
   try
   {
     Bureaucrat  a("Gabriel", 75);
-    std::cout << a << std::endl;
+    std::cout << "\n" << a << "\n" << std::endl;
     Form        b("Form1", 80, 80);
+    std::cout << "\n" << b << std::endl;
 
     a.signForm(b);
-    std::cout << "\n" << b << std::endl;
   }
   catch (const std::exception& e)
   {
@@ -33,7 +33,7 @@ int main(void)
   try
   {
     Bureaucrat  c("Leonardo", 80);
-    std::cout << c << std::endl;
+    std::cout << "\n" << c << "\n" << std::endl;
     Form        d("Form2", 60, 60);
    
     std::cout << "\n" << d << std::endl;

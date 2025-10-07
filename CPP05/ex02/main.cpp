@@ -22,12 +22,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Vinicius", 146);
+    Bureaucrat bureaucrat("Vinicius", 146);
     ShrubberyCreationForm tree("tree.txt");
 
     std::cout << "\n" << tree << std::endl;
-    a.signAForm(tree);
-    tree.execute(a);
+    bureaucrat.signAForm(tree);
+    tree.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -37,12 +37,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing low grade to execute grade Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Leonardo", 145);
+    Bureaucrat bureaucrat("Leonardo", 145);
     ShrubberyCreationForm tree("Tree.txt");
 
     std::cout << "\n" << tree << std::endl;
-    a.signAForm(tree);
-    tree.execute(a);
+    bureaucrat.signAForm(tree);
+    tree.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -52,12 +52,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing high grade to sign && execute Bureaucrat ShrubberyCreationForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat  a("Gabriel", 130);
+    Bureaucrat  bureaucrat("Gabriel", 130);
     ShrubberyCreationForm tree("tree.txt");
 
     std::cout << "\n" << tree << std::endl;
-    a.signAForm(tree);
-    tree.execute(a);
+    bureaucrat.signAForm(tree);
+    tree.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -67,12 +67,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat RobotomyRequestForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Fernando", 73);
+    Bureaucrat bureaucrat("Fernando", 73);
     RobotomyRequestForm robot("Cortana");
 
     std::cout << "\n" << robot << std::endl;
-    a.signAForm(robot);
-    robot.execute(a);
+    bureaucrat.signAForm(robot);
+    robot.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -82,12 +82,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing low grade to execute grade Bureaucrat RobotomyRequestForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Leonardo", 46);
+    Bureaucrat bureaucrat("Leonardo", 46);
     RobotomyRequestForm robot("Cortana");
 
     std::cout << "\n" << robot << std::endl;
-    a.signAForm(robot);
-    robot.execute(a);
+    bureaucrat.signAForm(robot);
+    robot.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -97,12 +97,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing high grade to sign && execute Bureaucrat RobotomyRequestForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat  a("Gabriel", 45);
+    Bureaucrat  bureaucrat("Gabriel", 45);
     RobotomyRequestForm robot("Cortana");
 
     std::cout << "\n" << robot << std::endl;
-    a.signAForm(robot);
-    robot.execute(a);
+    bureaucrat.signAForm(robot);
+    robot.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -112,12 +112,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing low grade to sign Bureaucrat PresidentialPardonForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Fernando", 26);
+    Bureaucrat bureaucrat("Fernando", 26);
     PresidentialPardonForm president("Bolsonaro");
 
     std::cout << "\n" << president << std::endl;
-    a.signAForm(president);
-    president.execute(a);
+    bureaucrat.signAForm(president);
+    president.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -127,12 +127,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing low grade to execute grade Bureaucrat PresidentialPardonForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat a("Leonardo", 25);
+    Bureaucrat bureaucrat("Leonardo", 25);
     PresidentialPardonForm president("tree.txt");
 
     std::cout << "\n" << president << std::endl;
-    a.signAForm(president);
-    president.execute(a);
+    bureaucrat.signAForm(president);
+    president.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {
@@ -142,12 +142,12 @@ int main(void)
   std::cout << CYAN << "\n=== Testing high grade to sign && execute Bureaucrat PresidentialPardonForm ===" << RESET << std::endl;
   try
   {
-    Bureaucrat  a("Gabriel", 1);
+    Bureaucrat  bureaucrat("Gabriel", 1);
     PresidentialPardonForm president("gde-la-r");
 
     std::cout << "\n" << president << std::endl;
-    a.signAForm(president);
-    president.execute(a);
+    bureaucrat.signAForm(president);
+    president.execute(bureaucrat);
   }
   catch (const std::exception& e)
   {

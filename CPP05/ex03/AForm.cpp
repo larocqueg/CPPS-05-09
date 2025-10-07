@@ -45,7 +45,7 @@ AForm::~AForm()
 {
 }
 
-void AForm::signAForm(const Bureaucrat& b)
+void AForm::beSigned(const Bureaucrat& b)
 {
     if (this->_signed)
     {
