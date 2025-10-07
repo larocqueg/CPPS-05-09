@@ -49,7 +49,7 @@ Form::~Form()
     std::cout << RED << "Form " << this->_name << " destructor called!" << RESET << std::endl;
 }
 
-void Form::signForm(const Bureaucrat& b)
+void Form::beSigned(const Bureaucrat& b)
 {
     if (this->_signed)
     {

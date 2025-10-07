@@ -21,7 +21,7 @@ int main(void)
     std::cout << a << std::endl;
     Form        b("Form1", 80, 80);
 
-    b.signForm(a);
+    a.signForm(b);
     std::cout << "\n" << b << std::endl;
   }
   catch (const std::exception& e)
@@ -37,7 +37,7 @@ int main(void)
     Form        d("Form2", 60, 60);
    
     std::cout << "\n" << d << std::endl;
-    d.signForm(c);
+    c.signForm(d);
   }
   catch (const std::exception& e)
   {

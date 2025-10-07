@@ -33,7 +33,7 @@ class Form
     Form& operator=(const Form& original);
     ~Form();
 
-    void                signForm(const Bureaucrat& b);
+    void                beSigned(const Bureaucrat& b);
     unsigned int        getGrade() const;
     unsigned int        getEGrade() const;
     const std::string&   getName() const;
