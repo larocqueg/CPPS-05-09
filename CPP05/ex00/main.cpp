@@ -14,8 +14,25 @@
 
 int main(void)
 {
-	std::cout << YELLOW << "=== Creating a valid Bureaucrat with grade 150 ==="
+  std::cout << YELLOW << "\n";
+
+	std::cout << YELLOW << "\n=== Creating a valid Bureaucrat with grade 150 ===\n"
     << RESET << std::endl;
+  std::string tName = "Obi-wan";
+  try
+  {
+    Bureaucrat t(tName, 1);
+
+    std::cout << t << std::endl;
+    t.decrementGrade();
+    std::cout << t << std::endl;
+    t.incrementGrade();
+    std::cout << t << std::endl;
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << e.what() << std::endl;
+  }
 	
   std::string aName = "Gabriel";
   try
@@ -30,7 +47,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-  std::cout << YELLOW << "\n=== Creating a valid Bureaucrat with grade 1 ==="
+  std::cout << YELLOW << "\n=== Creating a valid Bureaucrat with grade 1 ===\n"
     << RESET << std::endl;
 
   std::string dName = "Fernando";
@@ -48,7 +65,7 @@ int main(void)
     std::cerr << e.what() << std::endl;
   }
 
-	std::cout << YELLOW << "\n=== Creating a Bureaucrat with high grade exception ==="
+	std::cout << YELLOW << "\n=== Creating a Bureaucrat with high grade exception ===\n"
     << RESET << std::endl;
 
 	std::string bName = "Leonardo";
@@ -62,7 +79,7 @@ int main(void)
 		std::cerr << e.what() << std::endl;
 	}
 
-	std::cout << YELLOW << "\n=== Creating a Bureaucrat with low grade exception ==="
+	std::cout << YELLOW << "\n=== Creating a Bureaucrat with low grade exception ===\n"
     << RESET << std::endl;
 
 	std::string cName = "Vinicius";

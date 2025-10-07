@@ -57,6 +57,8 @@ void Bureaucrat::incrementGrade()
 {
 	if (_grade == 1)
 		throw cannotIncrementException();
+  std::cout << GREEN << "Bureaucrat " << this->_name << " grade was incremented by 1!"
+  << RESET << std::endl;
 	_grade--;
 }
 
@@ -64,6 +66,8 @@ void Bureaucrat::decrementGrade()
 {
 	if (_grade == 150)
 		throw cannotDecrementException();
+  std::cout << GREEN << "Bureaucrat " << this->_name << " grade was decremented by 1!"
+  << RESET << std::endl;
 	_grade++;
 }
 
