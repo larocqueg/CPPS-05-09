@@ -68,3 +68,6 @@ static bool ScalarConverter::typeDouble(std::string literal)
 {
 }
 
+static void convert(std::string& literal)
+{
+}
