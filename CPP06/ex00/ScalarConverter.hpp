@@ -20,7 +20,11 @@ class ScalarConverter
     ScalarConverter(const ScalarConverter& original);
     ScalarConverter& operator=(const ScalarConverter& original);
     ~ScalarConverter();
-    static const std::string getType(const std::string& literal);
+    static bool               typeChar(std::string& literal);
+    static bool               typeInt(std::string& literal);
+    static bool               typeFloat(std::string& literal);
+    static bool               typeDouble(std::string& literal);
+    static const std::string  getType(const std::string& literal);
   public:
     static void convert(std::string& literal);
 }
