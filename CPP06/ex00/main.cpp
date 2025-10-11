@@ -16,14 +16,16 @@ int main(int ac, char **av)
 {
   if (ac != 2)
   {
-    std::cout << RED << "Usage: ./Scalar \"argument\"" << RESET << std::endl;
+    std::cout << "Usage: ./Scalar \"argument\"" << std::endl;
+    return (1);
   }
   try
   {
-    ScalarConverter::convert(av[1]);
+    std::string literal = av[1];
+    ScalarConverter::convert(literal);
   }
   catch (const std::exception& e)
   {
-    std::cerr << RED << e.what() << RESET << std::endl
+    std::cerr << e.what() << std::endl;
   }
 }
