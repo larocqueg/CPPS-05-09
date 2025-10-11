@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/11 15:22:54 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/11 15:22:55 by gde-la-r         ###   ########.fr        #
+#    Created: 2025/10/11 15:22:44 by gde-la-r          #+#    #+#              #
+#    Updated: 2025/10/11 15:22:45 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = convert
+NAME = Serialization
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
