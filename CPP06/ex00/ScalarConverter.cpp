@@ -131,7 +131,7 @@ void	typeNum(std::string& literal)
 {
 	double	num;
 
-	num = std::atof(literal.c_str());
+	num = std::strtod(literal.c_str(), NULL);
 	if (num >= 0 && num <= 127)
 	{
 		char	c = static_cast<char>(num);
