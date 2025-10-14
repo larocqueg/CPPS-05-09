@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/08 11:29:19 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/10/08 11:29:52 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/10/14 14:51:44 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/10/14 14:52:35 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
 #include <string>
 
-class ScalarConverter
+struct Data
 {
-  private:
-    ScalarConverter();
-    ScalarConverter(const ScalarConverter& original);
-    ScalarConverter& operator=(const ScalarConverter& original);
-    ~ScalarConverter();
-  public:
-    static void convert(std::string& literal);
-    enum Type { CHAR, SPECIAL, INT, FLOAT, DOUBLE, INVALID };
+  int         id;
+  double      value;
+  std::string name;
 };
