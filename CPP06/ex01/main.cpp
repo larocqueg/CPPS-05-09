@@ -12,34 +12,51 @@
 
 #include "Data.hpp"
 #include "Serializer.hpp"
+#include <cstdlib>
 
-int main(void)
+int main(int ac, char **av)
 {
   Data data;
 
-  data.id = 42;
-  data.value = 3.14159;
-  data.name = "Gabriel";
+  if (ac == 4)
+  {
+    std::string av1 = av[1];
+    data.id = std::atoi(av1.c_str());
 
-  std::cout << "Origianl Data address: " << &data << std::endl;
-  std::cout << "Origianl Data content:"
+    std::string av2 = av[2];
+    data.value = std::strtod(av2.c_str(), NULL);
+
+    data.name = av[3];
+  }
+  else
+  {
+    data.id = 42;
+    data.value = 3.14159;
+    data.name = "Gabriel";
+  }
+
+  std::cout << CYAN << "\nOrigianl Data address: " << RESET
+    << GREEN << &data << RESET << std::endl;
+  
+  std::cout << GREEN << "\nOrigianl Data content:" << RESET
     << "\nid: " << data.id
     << "\nvalue: " << data.value 
     << "\nname: " << data.name << std::endl;
   
   uintptr_t raw = Serializer::serialize(&data);
-  std::cout << "\nSerializer (uintptr_t): " << raw << std::endl;
+  std::cout << YELLOW << "\nSerializer (uintptr_t): " << raw << RESET << std::endl;
 
   Data  *deserialize = Serializer::deserialize(raw);
 
   if (deserialize == &data)
   {
-    std::cout << "\nDeserialized data address: " << deserialize << std::endl;
+    std::cout << CYAN << "\nDeserialized data address: "
+      << RESET << GREEN << deserialize << RESET << std::endl;
     
-    std::cout << "Origianl Data content: "
+    std::cout << GREEN << "\nDeserialized Data content:" << RESET
       << "\nid: " << deserialize->id
       << "\nvalue: " << deserialize->value
-      << "\nname: " << deserialize->name << std::endl;
+      << "\nname: " << deserialize->name  + "\n" << std::endl;
   }
   else
   {
