@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/14 17:40:31 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/14 17:40:35 by gde-la-r         ###   ########.fr        #
+#    Created: 2025/10/11 15:22:54 by gde-la-r          #+#    #+#              #
+#    Updated: 2025/10/11 15:22:55 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = Serialization
+NAME = convert
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp Serializer.cpp
+SRCS = main.cpp
 OBJS_DIR = objs
 OBJS = $(SRCS:.cpp=.o)
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
