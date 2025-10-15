@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indentify.cpp                                      :+:      :+:    :+:   */
+/*   identify.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "indentify.hpp"
+#include "identify.hpp"
 
 Base  *generate(void)
 {
@@ -35,19 +35,19 @@ Base  *generate(void)
   return (NULL);
 }
 
-void  indentify(Base* p)
+void  identify(Base* p)
 {
   if (dynamic_cast<A*>(p))
   {
-    std::cout << GREEN << "Object type is A!" << RESET << std::endl;
+    std::cout << YELLOW << "Object type is A!" << RESET << std::endl;
   }
   else if (dynamic_cast<B*>(p))
   {
-    std::cout << GREEN << "Object type is B!" << RESET << std::endl;
+    std::cout << YELLOW << "Object type is B!" << RESET << std::endl;
   }
   else if (dynamic_cast<C*>(p))
   {
-    std::cout << GREEN << "Object type is C!" << RESET << std::endl;
+    std::cout << YELLOW << "Object type is C!" << RESET << std::endl;
   }
   else
   {
@@ -55,7 +55,7 @@ void  indentify(Base* p)
   }
 }
 
-void  indentify(Base& p)
+void  identify(Base& p)
 {
   try
   {

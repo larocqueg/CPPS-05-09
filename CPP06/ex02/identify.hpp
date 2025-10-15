@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   indentify.hpp                                      :+:      :+:    :+:   */
+/*   identify.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,6 +15,7 @@
 #include <ctime>
 #include <string>
 #include <cstdlib>
+#include <iostream>
 
 #include "Base.hpp"
 #include "A.hpp"
@@ -22,5 +23,5 @@
 #include "C.hpp"
 
 Base  *generate(void);
-void  indentify(Base* p);
-void  indentify(Base& p);
+void  identify(Base* p);
+void  identify(Base& p);
