@@ -17,15 +17,14 @@ int main(int ac, char **av)
   if (ac != 2)
   {
     std::cout << "Usage: ./Scalar \"argument\"" << std::endl;
-    return (1);
   }
-  try
+  else
   {
     std::string literal = av[1];
     ScalarConverter::convert(literal);
   }
-  catch (const std::exception& e)
-  {
-    std::cerr << e.what() << std::endl;
-  }
+  std::cout << std::endl;
+  std::string s;
+  s.push_back(0);
+  ScalarConverter::convert(s);
 }

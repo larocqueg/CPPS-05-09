@@ -96,7 +96,10 @@ void	typeChar(std::string& literal)
 	char	c;
 
 	c = literal[0];
-	std::cout << "char: " << c << std::endl;
+  if (isprint(c))
+	  std::cout << "char: " << c << std::endl;
+  else
+    std::cout << "char: non-displayable!" << std::endl;
 	std::cout << "int: " << static_cast<int>(c) << std::endl;
 	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
 	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
