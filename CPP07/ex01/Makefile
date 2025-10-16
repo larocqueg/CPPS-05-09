@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/15 16:56:27 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/15 16:56:39 by gde-la-r         ###   ########.fr        #
+#    Created: 2025/10/16 12:28:39 by gde-la-r          #+#    #+#              #
+#    Updated: 2025/10/16 12:28:44 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = whatever
+NAME =
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
