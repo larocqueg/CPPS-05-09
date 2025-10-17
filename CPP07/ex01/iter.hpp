@@ -28,12 +28,12 @@ void iter(I *array, const int size, F f)
 {
   if (size == 0)
   {
-    std::cout << RED << "INVALID SIZE" << std::endl;
+    std::cout << RED << "Error: Invalid size." << std::endl;
     return ;
   }
   if (!array)
   {
-    std::cout << RED << "INVALID POINTER" << std::endl;
+    std::cout << RED << "Invalid pointer." << std::endl;
     return ;
   }
   for (int i = 0; i < size; i++)
