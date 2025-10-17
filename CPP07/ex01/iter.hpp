@@ -26,18 +26,28 @@
 template <typename I, typename F>
 void iter(I *array, const int size, F f)
 {
+  if (size == 0)
+  {
+    std::cout << RED << "INVALID SIZE" << std::endl;
+    return ;
+  }
+  if (!array)
+  {
+    std::cout << RED << "INVALID POINTER" << std::endl;
+    return ;
+  }
   for (int i = 0; i < size; i++)
     f(array[i]);
 }
 
 template <typename I>
-void print_string(const I& arg)
+void print_string(I& arg)
 {
   std::cout << arg << " ";
 }
 
 template <typename I>
-void print_int(const I& arg)
+void print_int(I& arg)
 {
   std::cout << arg << " ";
 }
@@ -57,9 +67,8 @@ void increment_string(I& arg)
 template <typename I>
 void  repeat_ascii(I& arg)
 {
-  int repeat;
+  int repeat = 0;
 
-  repeat = 0;
   for (std::string::size_type i = 0; i < arg.length(); i++)
   {
     if (arg[i] >= 'A' && arg[i] <= 'Z')
