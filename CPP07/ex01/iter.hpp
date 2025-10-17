@@ -53,3 +53,36 @@ void increment_string(I& arg)
 {
   std::transform(arg.begin(), arg.end(), arg.begin(), ::toupper);
 }
+
+template <typename I>
+void  repeat_ascii(I& arg)
+{
+  int repeat;
+
+  repeat = 0;
+  for (std::string::size_type i = 0; i < arg.length(); i++)
+  {
+    if (arg[i] >= 'A' && arg[i] <= 'Z')
+    {
+      repeat = arg[i] - 'A' + 1;
+    }
+    else if (arg[i] >= 'a' && arg[i] <= 'z')
+    {
+      repeat = arg[i] - 'a' + 1;
+    }
+    else
+    {
+      repeat = 0;
+    }
+    if (repeat != 0)
+    {
+      for (int j = 0; j < repeat; j++)
+      {
+        std::cout << arg[i];
+      }
+    }
+    else
+      std::cout << arg[i];
+  }
+  std::cout << " ";
+}

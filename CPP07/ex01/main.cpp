@@ -22,6 +22,7 @@ int main(void)
   std::cout << YELLOW << "\n\nPrinting int array after incrementing" << RESET << std::endl;
   iter(array, 10, print_int<const int>);
 
+
   std::cout << YELLOW << "\n\nPrinting std::string array before incrementing" << RESET << std::endl;
   std::string array2[] = {"Hello", "World", "42"};
   iter(array2, 3, print_string<const std::string>);
@@ -29,7 +30,11 @@ int main(void)
 
   std::cout << YELLOW << "\n\nPrinting std::string array after incrementing" << RESET << std::endl;
   iter(array2, 3, print_string<const std::string>);
-  std::cout << "\n" << std::endl;
+  
+  std::cout << YELLOW << "\n\nPrinting std::stirng array with repeat ascii" << RESET << std::endl;
+  std::string array3[] = {"abc", "def", "ghi", "123"};
+  iter(array3, 4, repeat_ascii<const std::string>);
+  std::cout << std::endl;
 
   return (0);
 }
