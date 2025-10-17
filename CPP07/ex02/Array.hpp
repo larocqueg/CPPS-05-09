@@ -16,6 +16,12 @@
 #include <iostream>
 #include <stdexcept>
 
+#define RED     "\033[31m"
+#define YELLOW  "\033[33m"
+#define GREEN   "\033[32m"
+#define CYAN    "\033[36m"
+#define RESET   "\033[0m"
+
 template <typename T>
 
 class Array
@@ -25,21 +31,83 @@ class Array
     unsigned int  _size;
 
   public:
-    Array() : _data(nullptr), _size(0)
+    
+    Array() : _data(NULL), _size(0)
     {
     }
-    Array(unsigned int n) : _data(newT[n]()), _size(n)
+    
+    Array(unsigned int n)
     {
+      if (n > 0)
+      {
+        std::cout << GREEN << "Array of size " << n << " was created!"
+          << RESET << std::endl;
+        _data = new T[n];
+        _size = n;
+      }
+      else
+      {
+        std::cout << RED << "Error: Invalid size given, ensure it is > 0!"
+          << RESET << std::endl;
+        _size = 0;
+        _data = NULL;
+      }
     }
-    Array(const Array& original) : _data(nullptr), size(0)
+    
+    Array(const Array& original) : _data(NULL), _size(0)
     {
+      *this = original;
     }
-    Array(const Array& original) : _data(nullptr), size(0)
+    
+    Array& operator=(const Array& original)
     {
-      *this = other;
+      std::cout << CYAN << "Array copy assignment operator called!"
+        << RESET << std::endl;
+      if (this != &original)
+      {
+        delete[] _data;
+        _size = original._size;
+        _data = new T[_size];
+        for (unsigned int i = 0; i < _size; i++)
+          _data[i] = original._data[i];
+      }
+      return (*this);
     }
+    
     ~Array()
     {
-      delete[] _data;
+      if (_data)
+        delete[] _data;
     }
-}
+    
+    T& operator[](unsigned int index)
+    {
+      if (index >= _size)
+        throw std::out_of_range("Index is out of bounds");
+      return (_data[index]);
+    }
+
+    const T& operator[](unsigned int index) const
+    {
+      if (index >= _size)
+        throw std::out_of_range("Index is out of bounds");
+      return (_data[index]);
+    }
+
+    unsigned int  size() const
+    {
+      return (_size);
+    }
+
+    void  printData(unsigned int index)
+    {
+      std::cout << _data[index] << " ";
+    }
+
+    void  setData(unsigned int index)
+    {
+      static int i;
+      
+      _data[index] = i++;
+    }
+};
