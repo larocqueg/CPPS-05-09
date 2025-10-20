@@ -56,6 +56,7 @@ int main(void)
   }
 
   std::cout << YELLOW << "\n\nPrinting array1 until index is out of bounds" << RESET << std::endl;
+  std::cout << CYAN << "array1" << RESET << std::endl;
   for (unsigned int i = 0; i <= size; i++)
   {
     array1.printData(i);
