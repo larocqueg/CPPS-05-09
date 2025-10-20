@@ -103,23 +103,26 @@ class Array
 
     void  printData(unsigned int index)
     {
-      if (index >= _size)
+      try
       {
-        std::cout << RED << "\nError: index is out of range!" << RESET << std::endl;
-        return ;
+        std::cout << (*this)[index] << " ";
       }
-      std::cout << _data[index] << " ";
+      catch (const std::exception& e)
+      {
+        std::cerr << RED << "\n" << e.what() << RESET << std::endl;
+      }
     }
 
     void  setData(unsigned int index)
     {
       static int i;
-      
-      if (index >= _size)
+      try
       {
-        std::cout << RED << "\nError: index is out of range!" << RESET << std::endl;
-        return ;
+        (*this)[index] = i++;
       }
-      _data[index] = i++;
+      catch (const std::exception& e)
+      {
+        std::cerr << RED << "\n" << e.what() << RESET << std::endl;
+      }
     }
 };

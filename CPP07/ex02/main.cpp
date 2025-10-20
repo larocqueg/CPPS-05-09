@@ -55,12 +55,10 @@ int main(void)
     array2.printData(i);
   }
 
-  std::cout << YELLOW << "\n\nPrinting array1 until i get a invalid index" << RESET << std::endl;
+  std::cout << YELLOW << "\n\nPrinting array1 until index is out of bounds" << RESET << std::endl;
   for (unsigned int i = 0; i <= size; i++)
   {
     array1.printData(i);
   }
-  std::cout << std::endl;
-
   return (0);
 }
