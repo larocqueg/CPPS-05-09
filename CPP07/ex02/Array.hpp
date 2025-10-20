@@ -15,6 +15,7 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+#include <cstdlib>
 
 #define RED     "\033[31m"
 #define YELLOW  "\033[33m"
