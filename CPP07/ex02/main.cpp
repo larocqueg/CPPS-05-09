@@ -23,10 +23,10 @@ int main(void)
   array2 = array1;
   size = array1.size();
 
-  std::cout << YELLOW << "\nCreating invalid size arrays" << RESET << std::endl;
+  std::cout << YELLOW << "\nCreating empty array" << RESET << std::endl;
   Array<int> array3(0);
 
-  std::cout << YELLOW << "\n\nPrinting array1 before changing _data values" << RESET << std::endl;
+  std::cout << YELLOW << "\nPrinting array1 before changing _data values" << RESET << std::endl;
   for (unsigned int i = 0; i < size; i++)
   {
     array1.printData(i);
@@ -53,6 +53,12 @@ int main(void)
   for (unsigned int i = 0; i < size; i++)
   {
     array2.printData(i);
+  }
+
+  std::cout << YELLOW << "\n\nPrinting array1 until i get a invalid index" << RESET << std::endl;
+  for (unsigned int i = 0; i <= size; i++)
+  {
+    array1.printData(i);
   }
   std::cout << std::endl;
 

@@ -35,6 +35,7 @@ class Array
     
     Array() : _data(NULL), _size(0)
     {
+      std::cout << GREEN << "Array of size " << _size << " was created!" << RESET << std::endl;
     }
     
     Array(unsigned int n)
@@ -48,10 +49,10 @@ class Array
       }
       else
       {
-        std::cout << RED << "Error: Invalid size given, ensure it is > 0!"
-          << RESET << std::endl;
+      
         _size = 0;
         _data = NULL;
+        std::cout << GREEN << "Array of size " << _size << " was created!" << RESET << std::endl;
       }
     }
     
@@ -102,6 +103,11 @@ class Array
 
     void  printData(unsigned int index)
     {
+      if (index >= _size)
+      {
+        std::cout << RED << "\nError: index is out of range!" << RESET << std::endl;
+        return ;
+      }
       std::cout << _data[index] << " ";
     }
 
@@ -109,6 +115,11 @@ class Array
     {
       static int i;
       
+      if (index >= _size)
+      {
+        std::cout << RED << "\nError: index is out of range!" << RESET << std::endl;
+        return ;
+      }
       _data[index] = i++;
     }
 };
