@@ -103,26 +103,12 @@ class Array
 
     void  printData(unsigned int index)
     {
-      try
-      {
         std::cout << (*this)[index] << " ";
-      }
-      catch (const std::exception& e)
-      {
-        std::cerr << RED << "\n" << e.what() << RESET << std::endl;
-      }
     }
 
     void  setData(unsigned int index)
     {
       static int i;
-      try
-      {
-        (*this)[index] = i++;
-      }
-      catch (const std::exception& e)
-      {
-        std::cerr << RED << "\n" << e.what() << RESET << std::endl;
-      }
+      (*this)[index] = i++;
     }
 };
