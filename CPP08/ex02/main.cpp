@@ -5,43 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/22 17:17:46 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/10/22 17:19:01 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/10/22 18:03:30 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/10/22 18:04:18 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
+#include <string>
+#include <iostream>
+#include <list>
 
 int main()
 {
-  MutantStack<int> mstack;
-  
-  mstack.push(5);
-  mstack.push(17);
-  
-  std::cout << mstack.top() << std::endl;
-  mstack.pop();
+  std::list<int> mstack;
+
+  mstack.push_back(5);
+  mstack.push_back(17);
+  std::cout << mstack.back() << std::endl;
+
+  mstack.pop_back();
   std::cout << mstack.size() << std::endl;
-  
-  mstack.push(3);
-  mstack.push(5);
-  mstack.push(737);
-  
-  //[...]
-  
-  mstack.push(0);
-  
-  MutantStack<int>::iterator it = mstack.begin();
-  MutantStack<int>::iterator ite = mstack.end();
-  
+
+  mstack.push_back(3);
+  mstack.push_back(5);
+  mstack.push_back(737);
+  mstack.push_back(0);
+
+  std::list<int>::iterator it = mstack.begin();
+  std::list<int>::iterator ite = mstack.end();
+
   ++it;
   --it;
-  
+
   while (it != ite)
   {
     std::cout << *it << std::endl;
     ++it;
   }
-  std::stack<int> s(mstack);
+  std::list<int> s(mstack);
   return (0);
 }
+
