@@ -12,8 +12,18 @@
 
 #pragma once
 
+#include <list>
 #include <string>
+#include <vector>
 #include <iostream>
+#include <iterator>
+#include <algorithm>
+
+#define RED     "\033[31m"
+#define YELLOW  "\033[33m"
+#define GREEN   "\033[32m"
+#define CYAN    "\033[36m"
+#define RESET   "\033[0m"
 
 class Span
 {
@@ -22,9 +32,13 @@ class Span
     unsigned int  _N;
     std::vector<unsigned int> _values;
   public:
+    Span(unsigned int n);
     Span(const Span& original);
-    Span&         operator=(const Span& original);
-    void          addNumber(unsigned int n);
+    Span& operator=(const Span& original);
+    ~Span();
+    void  addNumber(unsigned int n);
+    void  addNumber(unsigned int begin, unsigned int end);
+    void  printVector();
     unsigned int  shortestSpan();
     unsigned int  longestSpan();
 };
