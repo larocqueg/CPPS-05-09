@@ -12,7 +12,7 @@
 
 #include "Span.hpp"
 
-int main()
+int main(int ac, char **av)
 {
   Span sp = Span(5);
   
@@ -30,16 +30,43 @@ int main()
   std::cout << "longestSpan = " << sp.longestSpan() << std::endl;
   std::cout << std::endl;
 
-  std::cout << YELLOW << "\n\nCreating a new Span and adding numbers with the addNumber with 2 params" << RESET << std::endl;
-  Span sp2 = Span(20);
+  std::cout << YELLOW << "\n\nTrying to add number bigger than INT_MAX" << RESET << std::endl;
   try
   {
-    sp2.addNumber(0, 19);
-    sp2.printVector();
+    sp.addNumber(2147483648);
   }
   catch (const std::exception& e)
   {
     std::cerr << RED << e.what() << RESET << std::endl;
+  }
+
+  std::cout << YELLOW << "\n\nCreating Span of size 10 and trying to give a range > than 10" << RESET << std::endl;
+  try
+  {
+    Span test = Span(10);
+    sp.addNumber(0, 10);
+  }
+  catch (const std::exception& e)
+  {
+    std::cerr << RED << e.what() << RESET << std::endl;
+  }
+
+  if (ac == 2)
+  {
+    int range = std::atoi(av[1]);
+    std::cout << YELLOW << "\n\nCreating a new Span and adding numbers with the addNumber with 2 params" << RESET << std::endl;
+    Span sp2 = Span(range);
+    try
+    {
+      sp2.addNumber(0, range - 1);
+      sp2.printVector();
+      std::cout << YELLOW << "\n\nTrying to add a number to a full Span" << RESET << std::endl;
+      sp2.addNumber(10);
+    }
+    catch (const std::exception& e)
+    {
+       std::cerr << RED << e.what() << RESET << std::endl;
+    }
   }
   return (0);
 }

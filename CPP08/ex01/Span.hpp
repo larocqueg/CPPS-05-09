@@ -24,13 +24,15 @@
 #define GREEN   "\033[32m"
 #define CYAN    "\033[36m"
 #define RESET   "\033[0m"
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 
 class Span
 {
   private:
     Span();
     unsigned int  _N;
-    std::vector<unsigned int> _values;
+    std::vector<int> _values;
   public:
     Span(unsigned int n);
     Span(const Span& original);
@@ -39,6 +41,6 @@ class Span
     void  addNumber(unsigned int n);
     void  addNumber(unsigned int begin, unsigned int end);
     void  printVector();
-    unsigned int  shortestSpan();
-    unsigned int  longestSpan();
+    int  shortestSpan();
+    int  longestSpan();
 };

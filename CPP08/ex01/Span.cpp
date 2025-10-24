@@ -40,61 +40,66 @@ Span::~Span()
 
 void  Span::addNumber(unsigned int n)
 {
+  if (n > 2147483647)
+  {
+    throw (std::out_of_range("Invalid number"));
+  }
   if (_values.size() == _N)
   {
-    throw (std::out_of_range("Couldn't add more numbers, values is already full"));
+    throw (std::out_of_range("Couldn't add more numbers, Span is already full"));
   }
   _values.push_back(n);
 }
 
-void  Span::addNumber(unsigned int begin, unsigned end)
+void  Span::addNumber(unsigned int begin, unsigned int end)
 {
-  if (end - begin >= _N)
-  {
-    std::cout << end - begin << std::endl;
-    std::cout << _N << std::endl;
-    throw(std::out_of_range("Invalid range"));
-  }
-  for (unsigned i = 0; i <= end; i++)
+  if (begin > end || end - begin > 2147483648)
+    throw (std::out_of_range("Invalid range"));
+ 
+  unsigned int range = end - begin;
+  if (_values.size() + range > _N)
+    throw(std::out_of_range("Couldn't add more numbers, Span is already full"));
+  for (unsigned int i = begin; i <= end; i++)
   {
     _values.push_back(begin++);
   }
 }
 
-unsigned int  Span::shortestSpan()
+int  Span::shortestSpan()
 {
-  unsigned int min;
-  unsigned int temp_min;
+  int min;
+  int temp_min;
 
-  if (_values.size() == 1)
+  if (_values.size() <= 1)
   {
-    throw (std::out_of_range("Error: there is only 1 number inside values"));
+    throw (std::out_of_range("Error: there is only 1 number inside Span"));
   }
   
-  std::vector<unsigned int>sortVec = _values;
+  std::vector<int>sortVec = _values;
   std::sort(sortVec.begin(), sortVec.end());
 
   min = sortVec[1] - sortVec[0]; 
 
-  for (size_t i = 1; i < sortVec.size(); i++)
+  for (size_t i = 1; i < sortVec.size() - 1; i++)
   {
     if (i + 1 < sortVec.size())
-      temp_min = static_cast<unsigned int>(sortVec[i + 1] - sortVec[i]);
+      temp_min = static_cast<int>(sortVec[i + 1] - sortVec[i]);
     if (temp_min < min)
       min = temp_min;
   }
   return(min);
 }
 
-unsigned int  Span::longestSpan()
+int  Span::longestSpan()
 {
-  if (_values.size() == 1)
+  if (_values.size() <= 1)
   {
-    throw (std::out_of_range("Error: there is only 1 number inside values"));
+    throw (std::out_of_range("Error: there is only 1 number inside Span"));
   }
   
   int min = *std::min_element(_values.begin(), _values.end());
   int max = *std::max_element(_values.begin(), _values.end());
+  
   return (abs(max - min));
 }
 
