@@ -38,30 +38,33 @@ Span::~Span()
 {
 }
 
-void  Span::addNumber(unsigned int n)
+void  Span::addNumber(int n)
 {
-  if (n > 2147483647)
-  {
-    throw (std::out_of_range("Invalid number"));
-  }
-  if (_values.size() == _N)
+  if (_values.size() >= _N)
   {
     throw (std::out_of_range("Couldn't add more numbers, Span is already full"));
   }
   _values.push_back(n);
 }
 
-void  Span::addNumber(unsigned int begin, unsigned int end)
+void  Span::addNumber(int begin, int end)
 {
-  if (begin > end || end - begin > 2147483648)
-    throw (std::out_of_range("Invalid range"));
+  int range = abs(end - begin);
  
-  unsigned int range = end - begin;
-  if (_values.size() + range > _N)
-    throw(std::out_of_range("Couldn't add more numbers, Span is already full"));
-  for (unsigned int i = begin; i <= end; i++)
+  if (static_cast<int>(_values.size()) + range > static_cast<int>(_N))
+    throw(std::out_of_range("Invalid range"));
+
+  if (end > begin)
   {
-    _values.push_back(begin++);
+    for (int i = begin; i <= end && _values.size() < _N; i++)
+    {
+      _values.push_back(i);
+    }
+    return ;
+  }
+  for (int i = end; i < begin && _values.size() < _N; i++)
+  {
+    _values.push_back(i);
   }
 }
 
@@ -100,7 +103,7 @@ int  Span::longestSpan()
   int min = *std::min_element(_values.begin(), _values.end());
   int max = *std::max_element(_values.begin(), _values.end());
   
-  return (abs(max - min));
+  return (max - min);
 }
 
 void  Span::printVector()

@@ -18,7 +18,6 @@
 int main()
 {
   std::cout << YELLOW << "\nMutantStack tests" << RESET << std::endl;
-  
   MutantStack<int> mstack;
   
   mstack.push(5);
@@ -48,8 +47,7 @@ int main()
   }
   std::stack<int> s(mstack);
 
-  std::cout << YELLOW << "\n\nList tests" << RESET << std::endl;
-  
+  std::cout << YELLOW << "\n\nList tests" << RESET << std::endl; 
   std::list<int> mlist;
   
   mlist.push_back(5);
@@ -78,5 +76,25 @@ int main()
     ++it1;
   }
   std::list<int> s1(mlist);
+
+
+  MutantStack<int>testStack;
+  for (int i = 0; i <= 10; i++)
+  {
+    testStack.push(i);
+  }
+
+	MutantStack<int>::reverse_iterator rit = testStack.rbegin();
+	MutantStack<int>::reverse_iterator rite = testStack.rend();
+
+  std::cout << YELLOW << "\n\nPrinting Stack from reverse_begin to reverse_edn"
+    << RESET << std::endl;
+	while (rit != rite)
+	{
+		std::cout << *rit << " ";
+		++rit;
+	}
+	std::cout << std::endl;
+
   return (0);
 }

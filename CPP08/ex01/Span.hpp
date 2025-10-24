@@ -38,8 +38,8 @@ class Span
     Span(const Span& original);
     Span& operator=(const Span& original);
     ~Span();
-    void  addNumber(unsigned int n);
-    void  addNumber(unsigned int begin, unsigned int end);
+    void  addNumber(int n);
+    void  addNumber(int begin, int end);
     void  printVector();
     int  shortestSpan();
     int  longestSpan();
