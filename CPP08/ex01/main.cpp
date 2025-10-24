@@ -12,7 +12,7 @@
 
 #include "Span.hpp"
 
-int main()
+int main(int ac, char **av)
 {
   Span sp = Span(5);
   
@@ -51,6 +51,21 @@ int main()
   catch (const std::exception& e)
   {
     std::cerr << RED << e.what() << RESET << std::endl;
+  }
+  if (ac == 2)
+  {
+    std::cout << YELLOW << "\n\nSpan with argv range" << RESET << std::endl;
+    int num = std::atoi(av[1]);
+    Span sav = Span(abs(num));
+    try
+    {
+      sav.addNumber(0, num);
+      sav.printVector();
+    }
+    catch(const std::exception& e)
+    {
+      std::cerr << RED << e.what() << RESET << std::endl;
+    }
   }
   return (0);
 }
