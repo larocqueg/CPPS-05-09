@@ -79,22 +79,45 @@ int main()
 
 
   MutantStack<int>testStack;
-  for (int i = 0; i <= 10; i++)
-  {
-    testStack.push(i);
-  }
 
-	MutantStack<int>::reverse_iterator rit = testStack.rbegin();
-	MutantStack<int>::reverse_iterator rite = testStack.rend();
+	for (int i = 2; i <= 10; i++)
+    testStack.push(i * i);
+  
+  std::cout << "\n" << YELLOW << "Normal iteration (iterator):" << RESET << std::endl;
+  for (MutantStack<int>::iterator it = testStack.begin(); it != testStack.end(); ++it)
+    std::cout << *it << " ";
+  std::cout << std::endl;
 
-  std::cout << YELLOW << "\n\nPrinting Stack from reverse_begin to reverse_edn"
+  std::cout << "\n" << YELLOW << "Constant iteration (const_iterator):"
     << RESET << std::endl;
-	while (rit != rite)
-	{
-		std::cout << *rit << " ";
-		++rit;
-	}
-	std::cout << std::endl;
+  const MutantStack<int> const_testStack(testStack);
+  
+  for (MutantStack<int>::const_iterator it = const_testStack.begin(); it != const_testStack.end(); ++it)
+    std::cout << *it << " ";
+  std::cout << std::endl;
+
+  std::cout << "\n" << GREEN << "Reverse iteration (reverse_iterator):"
+    << RESET << std::endl;
+  for (MutantStack<int>::reverse_iterator rit = testStack.rbegin(); rit != testStack.rend(); ++rit)
+    std::cout << *rit << " ";
+  std::cout << std::endl;
+
+  std::cout << "\n" << GREEN << "Constant reverse iteration (const_reverse_iterator):"
+    << RESET << std::endl;
+  for (MutantStack<int>::const_reverse_iterator rit = const_testStack.rbegin(); rit != const_testStack.rend(); ++rit)
+    std::cout << *rit << " ";
+  std::cout << std::endl;
+
+  std::cout << "\n" << RED << "Testing pop and top:" << RESET << std::endl;
+  std::cout << "Top before pop: " << testStack.top() << std::endl;
+  testStack.pop();
+  std::cout << "Top after pop:  " << testStack.top() << std::endl;
+
+  std::cout << "\n" << CYAN << "Remaining elements:" << RESET << std::endl;
+  for (MutantStack<int>::iterator it = testStack.begin(); it != testStack.end(); ++it)
+    std::cout << *it << " ";
+  std::cout << std::endl;
 
   return (0);
 }
+
