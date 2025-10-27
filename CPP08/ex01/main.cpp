@@ -52,19 +52,24 @@ int main(int ac, char **av)
   {
     std::cerr << RED << e.what() << RESET << std::endl;
   }
-  if (ac == 2)
+  if (ac >= 2)
   {
-    std::cout << YELLOW << "\n\nSpan with argv range" << RESET << std::endl;
-    int num = std::atoi(av[1]);
-    Span sav = Span(abs(num));
-    try
+    int num;
+    for (int i = 1; i < ac; i++)
     {
-      sav.addNumber(0, num);
-      sav.printVector();
-    }
-    catch(const std::exception& e)
-    {
-      std::cerr << RED << e.what() << RESET << std::endl;
+      std::cout << YELLOW << "\n\nSpan with argv[" << i
+        << "] range" << RESET << std::endl;
+      num = std::atoi(av[i]);
+      Span sav = Span(abs(num));
+      try
+      {
+        sav.addNumber(0, num);
+        sav.printVector();
+      }
+      catch(const std::exception& e)
+      {
+        std::cerr << RED << e.what() << RESET << std::endl;
+      }
     }
   }
   return (0);
