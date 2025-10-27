@@ -41,7 +41,7 @@ int main(int ac, char **av)
     std::cerr << RED << e.what() << RESET << std::endl;
   }
 
-  std::cout << YELLOW << "\n\nCreating Span with ranged addNumber" << RESET << std::endl;
+  std::cout << YELLOW << "\n\nCreating Span with ranged addNumber" << RESET;
   try
   {
     Span sp2 = Span(11);
@@ -57,9 +57,18 @@ int main(int ac, char **av)
     int num;
     for (int i = 1; i < ac; i++)
     {
-      std::cout << YELLOW << "\n\nSpan with argv[" << i
-        << "] range" << RESET << std::endl;
       num = std::atoi(av[i]);
+      
+      if (num != 0)
+      {
+        std::cout << YELLOW << "\n\nSpan with argv[" << i
+          << "] range" << RESET << std::endl;
+      }
+      else
+      {
+        std::cerr << RED << "\nInvalid range for argv[" << i
+          << "]: It needs to be != 0" << RESET << std::endl;
+      }
       Span sav = Span(abs(num));
       try
       {

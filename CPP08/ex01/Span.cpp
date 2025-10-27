@@ -108,6 +108,8 @@ int  Span::longestSpan()
 
 void  Span::printVector()
 {
+  if (_N == 0)
+    return ;
   for (size_t i = 0; i < _values.size(); i++)
   {
     std::cout << _values[i] << " ";
