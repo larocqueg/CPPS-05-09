@@ -33,7 +33,7 @@ typename T::iterator easyfind(T& arr, int n)
   typename T::iterator it = std::find(arr.begin(), arr.end(), n);
   if (it != arr.end())
     return (it);
-  throw std::logic_error("Couldn't find any occurance of the given value");
+  throw std::logic_error("Couldn't find any occurrence of the given value");
 }
 
 template <typename T>
@@ -43,5 +43,5 @@ typename T::const_iterator easyfind(const T& arr, int n)
   typename T::const_iterator it = std::find(arr.begin(), arr.end(), n);
   if (it != arr.end())
     return (it);
-  throw std::logic_error("Couldn't find any occurance of te given value");
+  throw std::logic_error("Couldn't find any occurrence of the given value");
 }

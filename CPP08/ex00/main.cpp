@@ -39,7 +39,7 @@ int main(void)
   }
 
   const int arr1[] = {-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5};
-  std::vector<int>vectorArr1(arr1, arr1 + sizeof(arr1)/sizeof(arr[0]));
+  const std::vector<int>vectorArr1(arr1, arr1 + sizeof(arr1)/sizeof(arr[0]));
 
   std::cout << YELLOW << "\nLooping trought const int vector untill it catches a invalid number\n"
     << RESET << std::endl;
@@ -47,7 +47,7 @@ int main(void)
   {
     for (int i = -5; i <= 6; i++)
     {
-      std::vector<int>::iterator it = easyfind(vectorArr1, i);
+      std::vector<int>::const_iterator it = easyfind(vectorArr1, i);
       if (i < 0)
         std::cout << GREEN << "Found: " << i << " index: "
           << std::distance(vectorArr1.begin(), it) << RESET << std::endl;
