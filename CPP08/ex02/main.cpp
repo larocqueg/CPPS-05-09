@@ -108,7 +108,7 @@ int main()
     std::cout << *rit << " ";
   std::cout << std::endl;
 
-  std::cout << "\n" << RED << "Testing pop and top:" << RESET << std::endl;
+  std::cout << "\n" << YELLOW << "Testing pop and top:" << RESET << std::endl;
   std::cout << "Top before pop: " << testStack.top() << std::endl;
   testStack.pop();
   std::cout << "Top after pop:  " << testStack.top() << std::endl;
