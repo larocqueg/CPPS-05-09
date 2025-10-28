@@ -11,3 +11,33 @@
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+
+BitcoinExchange::BitcoinExchange()
+{
+}
+
+BitcoinExchange::BitcoinExchange(const BitcoinExchange& original)
+{
+  *this = original;
+}
+
+BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& original)
+{
+  if (*this != original)
+  {
+    this->_data = original._data;
+  }
+  return (*this);
+}
+
+BitcoinExchange::~BitcoinExchange()
+{
+}
+
+void BitcoinExchange::extractData(std::ifstream dataCsv)
+{
+}
+
+void BitcoinExchange::parser(std::ifstream infile)
+{
+}

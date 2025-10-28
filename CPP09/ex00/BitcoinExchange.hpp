@@ -12,5 +12,28 @@
 
 #pragma once
 
+#include <map>
 #include <string>
 #include <iostream>
+#include <ifstream>
+#include <ctype.h>
+#include <climits>
+
+#define RED     "\033[31m"
+#define YELLOW  "\033[33m"
+#define GREEN   "\033[32m"
+#define CYAN    "\033[36m"
+#define RESET   "\033[0m"
+
+class BitcoinExchange
+{
+  private:
+    std::map<std::string, float> _data;
+  public:
+    BitcoinExchange();
+    BitcoinExchange(const BitcoinExchange& original);
+    BitcoinExchange& operator=(const BitcoinExchange& original);
+    ~BitcoinExchange();
+    void extractData(std::ifstream dataCsv);
+    void parser(std::ifstream infile);
+}
