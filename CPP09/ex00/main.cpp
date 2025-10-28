@@ -15,8 +15,7 @@
 int main(int ac, char **av)
 {
   BitcoinExchange bitcoin;
-  std::ifstream   infile;
-  std::ifstream   dataCsv;
+  std::ifstream   infile, dataCsv;
 
   if (ac != 2)
   {

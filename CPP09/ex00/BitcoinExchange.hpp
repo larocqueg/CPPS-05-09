@@ -14,9 +14,11 @@
 
 #include <map>
 #include <string>
+#include <sstream>
 #include <iostream>
-#include <ifstream>
+#include <fstream>
 #include <ctype.h>
+#include <time.h>
 #include <climits>
 
 #define RED     "\033[31m"
@@ -34,6 +36,6 @@ class BitcoinExchange
     BitcoinExchange(const BitcoinExchange& original);
     BitcoinExchange& operator=(const BitcoinExchange& original);
     ~BitcoinExchange();
-    void extractData(std::ifstream dataCsv);
-    void parser(std::ifstream infile);
-}
+    void extractData(std::ifstream& dataCsv);
+    void parser(std::ifstream& infile);
+};
