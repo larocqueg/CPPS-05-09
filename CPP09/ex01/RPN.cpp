@@ -81,6 +81,24 @@ void  doOp(const std::string& str)
       _nums.push_back(atoi(token));
     if (isSignal(token))
       _sigs.push_back(token);
+  }
+  
+  while (_num.size())
+  {
+    if (_sigs.top() == "+")
+    {
+    }
+    else if (_sigs.top() == "-")
+    {
 
+    }
+    else if (_sigs.top() == "*")
+    {
+
+    }
+    else if (_sigs.top() == "/")
+    {
+
+    }
   }
 }
