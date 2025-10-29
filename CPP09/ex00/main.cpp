@@ -15,27 +15,39 @@
 int main(int ac, char **av)
 {
   BitcoinExchange bitcoin;
-  std::ifstream   infile, dataCsv;
+  std::ifstream infile;
+  std::ifstream dataCsv;
 
   if (ac != 2)
   {
-    std::cerr << RED << "Error: Usage: ./btc \"filename\"" << RESET << std::endl;
+    std::cerr << RED << "Error: Usage: ./btc <filename>" << RESET << std::endl;
     return (1);
   }
 
-  dataCsv.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-  infile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+  dataCsv.open("data.csv");
+  if (!dataCsv.is_open())
+  {
+    std::cerr << RED << "Error: could not open data.csv" << RESET << std::endl;
+    return (1);
+  }
+
+  infile.open(av[1]);
+  if (!infile.is_open())
+  {
+    std::cerr << RED << "Error: could not open " << av[1] << RESET << std::endl;
+    return (1);
+  }
+
   try
-  {    
-    dataCsv.open("data.csv", std::ios::in);
-    infile.open(av[1], std::ios::in);
+  {
     bitcoin.extractData(dataCsv);
     bitcoin.parser(infile);
   }
-  catch (const std::exception& e)
+  catch (const std::exception &e)
   {
     std::cerr << RED << e.what() << RESET << std::endl;
     return (1);
   }
   return (0);
 }
+
