@@ -70,9 +70,17 @@ void  RPN::parser(const std::string& str)
 void  doOp(const std::string& str)
 {
   int                 res = 0;
+  std::string         token;
   std::stack<int>     _nums;
-  std::stack<char>    _sigs;
+  std::stack<std::string>    _sigs;
   std::stringstream   ss(str);
 
+  while  (ss >> token)
+  {
+    if (isDigit(token))
+      _nums.push_back(atoi(token));
+    if (isSignal(token))
+      _sigs.push_back(token);
 
+  }
 }
