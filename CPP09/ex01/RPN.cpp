@@ -24,10 +24,18 @@ RPN::RPN(const RPN& original)
 RPN& RPN::operator=(const RPN& original)
 {
   (void)original;
+  return (*this);
 }
 
 RPN::~RPN()
 {
+}
+
+static int  isSpace(char c)
+{
+  if (c == ' ')
+    return (1);
+  return (0);
 }
 
 static int  isDigit(std::string token)
@@ -36,7 +44,18 @@ static int  isDigit(std::string token)
 
   while (token[i] && token[i] >= '0' && token[i] <= '9')
     i++;
-  if (i == 1 && !token[i])
+  if (i == 1 && (isSpace(token[i]) || token[i] == '\0'))
+    return (1);
+  return (0);
+}
+
+static int  isSignal(std::string token)
+{
+  int i = 0;
+
+  while (token[i] && (token[i] == '+' || token[i] == '-' || token[i] == '*' || token[i] == '/'))
+    i++;
+  if (i == 1 && (isSpace(token[i]) || token[i] == '\0'))
     return (1);
   return (0);
 }
@@ -46,59 +65,74 @@ void  RPN::parser(const std::string& str)
   if (str.empty())
     throw std::runtime_error("Invalid argument.");
 
-  int         num = 0;
-  int         sig = 0;
-  std::string token;
+  int               nums = 0;
+  int               sig = 0;
+  std::string       token;
   std::stringstream ss(str);
 
   while (ss >> token)
   {
     if (isDigit(token))
-      numbers++;
-    else
-      throw std::runtime_error("Invalid argument");
-    if (isSignal(token))
+      nums++;
+    else if (isSignal(token))
       sig++;
     else
       throw std::runtime_error("Invalid argument");
   }
-  if (sig != num - 1)
+  if (sig != nums - 1)
     throw std::runtime_error("Invalid argument");
   return ;
 }
 
-void  doOp(const std::string& str)
+void RPN::doOp(const std::string& str)
 {
-  int                 res = 0;
-  std::string         token;
-  std::stack<int>     _nums;
-  std::stack<std::string>    _sigs;
-  std::stringstream   ss(str);
+  std::stack<int> st;
+  std::string token;
+  std::stringstream ss(str);
+  int a, b, res;
 
-  while  (ss >> token)
+  while (ss >> token)
   {
     if (isDigit(token))
-      _nums.push_back(atoi(token));
-    if (isSignal(token))
-      _sigs.push_back(token);
+    {
+      st.push(std::atoi(token.c_str()));
+    }
+    else if (isSignal(token))
+    {
+      if (st.size() < 2)
+        throw std::runtime_error("Not enough operands before operator");
+
+      b = st.top(); st.pop();
+      a = st.top(); st.pop();
+      res = 0;
+
+      if (token == "+")
+      {
+        res = a + b;
+      }
+      else if (token == "-")
+      {
+        res = a - b;
+      }
+      else if (token == "*")
+      {
+        res = a * b;
+      }
+      else if (token == "/")
+      {
+        if (b == 0)
+          throw std::runtime_error("Division by zero");
+        res = a / b;
+      }
+
+      st.push(res);
+    }
+    else
+      throw std::runtime_error("Invalid token");
   }
-  
-  while (_num.size())
-  {
-    if (_sigs.top() == "+")
-    {
-    }
-    else if (_sigs.top() == "-")
-    {
 
-    }
-    else if (_sigs.top() == "*")
-    {
+  if (st.size() != 1)
+    throw std::runtime_error("Malformed RPN expression");
 
-    }
-    else if (_sigs.top() == "/")
-    {
-
-    }
-  }
+  std::cout << st.top() << std::endl;
 }

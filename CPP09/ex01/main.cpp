@@ -22,9 +22,9 @@ int main(int ac, char **av)
   
   try 
   {
-    RPN.rpn;
+    RPN rpn;
     rpn.parser(av[1]);
-    rpn.doOP(av[1]);
+    rpn.doOp(av[1]);
   }
   catch (const std::exception& e)
   {
