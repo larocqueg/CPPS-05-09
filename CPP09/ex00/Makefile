@@ -54,9 +54,13 @@ clean:
 	rm -rf $(OBJS_DIR)
 
 fclean: clean
-	rm -rf $(NAME)
+	@if [ -f $(NAME) ]; then \
+		rm -rf $(NAME); \
+		echo "$(NAME) deleted"; \
+	fi
 	@if [ -f input.txt ]; then \
 		rm input.txt; \
+		echo "input.txt deleted"; \
 	fi
 
 re: fclean all
