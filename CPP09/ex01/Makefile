@@ -5,17 +5,17 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/28 11:08:43 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/28 11:08:52 by gde-la-r         ###   ########.fr        #
+#    Created: 2025/10/29 15:17:08 by gde-la-r          #+#    #+#              #
+#    Updated: 2025/10/29 15:17:21 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = RPN
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp
+SRCS = main.cpp RPN.cpp
 OBJS_DIR = objs
 OBJS = $(SRCS:.cpp=.o)
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
