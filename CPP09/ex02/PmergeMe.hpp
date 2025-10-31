@@ -14,6 +14,8 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
+#include <cstdlib>
 
 #define RED     "\033[31m"
 #define YELLOW  "\033[33m"
@@ -21,13 +23,18 @@
 #define CYAN    "\033[36m"
 #define RESET   "\033[0m"
 
-class PmergeMe:
+class PmergeMe
 {
   private:
-
+    unsigned int _numlen;
+    std::vector<int> _numbers;
   public:
     PmergeMe();
     PmergeMe(const PmergeMe& original);
     PmergeMe& operator=(const PmergeMe& original);
     ~PmergeMe();
-}
+    int   isSpace(char c);
+    int   isDigit(char c);
+    int   parser(std::string arg);
+    void  printVector();
+};
