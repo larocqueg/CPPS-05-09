@@ -61,7 +61,9 @@ int PmergeMe::parser(std::string arg)
     if (!isDigit(arg[i]) && !isSpace(arg[i]))
       throw std::runtime_error("Invalid argument");
   }
-  this->_numbers.push_back(std::atoi(arg.c_str()));
+  if (_numlen > 10)
+    throw std::runtime_error("Invalid number, only positive integers are allowed");
+  _numbers.push_back(std::atoi(arg.c_str()));
   return (0);
 }
 
