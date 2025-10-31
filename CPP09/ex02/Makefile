@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/28 11:09:01 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/28 11:09:10 by gde-la-r         ###   ########.fr        #
+#    Created: 2025/10/31 12:13:31 by gde-la-r          #+#    #+#              #
+#    Updated: 2025/10/31 12:22:09 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME =
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp
+SRCS = main.cpp PmergeMe.cpp
 OBJS_DIR = objs
 OBJS = $(SRCS:.cpp=.o)
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
