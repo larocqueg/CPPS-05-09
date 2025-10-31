@@ -6,11 +6,11 @@
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/31 12:13:31 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/31 12:22:09 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/10/31 14:27:05 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =
+NAME = PmergeMe
 
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
