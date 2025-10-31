@@ -16,7 +16,7 @@ int main(int ac, char **av)
 {
   if (ac != 2)
   {
-    std::cerr << RED << "" << RESET << std::endl;
+    std::cerr << RED << "Error: Usage: ./RPN \"numbers && signs\"" << RESET << std::endl;
     return (1);
   }
   
