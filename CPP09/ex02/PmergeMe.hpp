@@ -17,6 +17,7 @@
 #include <string>
 #include <vector>
 #include <cstdlib>
+#include <deque>
 
 #define RED     "\033[31m"
 #define YELLOW  "\033[33m"
@@ -28,8 +29,8 @@
 class PmergeMe
 {
   private:
-    int                 _dot;
-    std::vector<double>  _numbers;
+    std::deque<double>       _numbersDeq;
+    std::vector<double>   _numbersVec;
   public:
     PmergeMe();
     PmergeMe(const PmergeMe& original);

@@ -12,7 +12,7 @@
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe() : _dot(0)
+PmergeMe::PmergeMe()
 {
 
 }
@@ -26,7 +26,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& original)
 {
   if (this != &original)
   {
-    this->_numbers = original._numbers;
+    this->_numbersVec = original._numbersVec;
   }
   return (*this);
 }
@@ -45,11 +45,6 @@ int PmergeMe::isValid(char c)
   {
     return (1);
   }
-  else if (c == '.' && _dot == 0)
-  {
-    _dot = 1;
-    return (1);
-  }
   else
     return (0);
 }
@@ -66,23 +61,22 @@ int PmergeMe::parser(std::string arg)
       if (!isValid(arg[i]))
         throw std::runtime_error("Invalid argument");
     }
-    _dot = 0;
     num = std::strtod(arg.c_str(), NULL);
     if (num > INT_MAX || num < 0)
       throw std::runtime_error("Invalid number, all numbers must be positive integers");
-    _numbers.push_back(num);
+    _numbersVec.push_back(num);
   }
   return (0);
 }
 
 void  PmergeMe::printVector()
 {
-  for (unsigned long i  = 0; i < _numbers.size(); i++)
-    std::cout << _numbers[i] << " ";
+  for (unsigned long i  = 0; i < _numbersVec.size(); i++)
+    std::cout << static_cast<int>(_numbersVec[i]) << " ";
   std::cout << std::endl;
 }
 
 int sorting()
 {
-
+  return (0);
 }
