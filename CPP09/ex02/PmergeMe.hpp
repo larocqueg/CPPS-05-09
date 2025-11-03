@@ -37,5 +37,6 @@ class PmergeMe
     ~PmergeMe();
     int   isValid(char c);
     int   parser(std::string arg);
+    int   sorting();
     void  printVector();
 };
