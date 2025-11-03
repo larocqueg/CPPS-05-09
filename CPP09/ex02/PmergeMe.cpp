@@ -75,5 +75,6 @@ int PmergeMe::fordJohnson()
 int PmergeMe::sorting()
 {
   fordJohnson();
+  printNums();
   return (0);
 }
