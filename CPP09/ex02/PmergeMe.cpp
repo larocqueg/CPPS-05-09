@@ -71,102 +71,12 @@ void  PmergeMe::printNums()
 
 int PmergeMe::fordJohnsonDeq()
 {
-  if (_numbersDeq.size() <= 1)
-    return (0);
-
-  std::vector< std::pair<int, int> > pairs;
-  std::deque<int>::iterator it = _numbersDeq.begin();
-
-  while (it != _numbersDeq.end())
-  {
-    int first = *it++;
-    if (it != _numbersDeq.end())
-    {
-      int second = *it++;
-      if (first > second)
-        std::swap(first, second);
-      pairs.push_back(std::make_pair(first, second));
-    }
-    else
-    {
-      pairs.push_back(std::make_pair(first, -1));
-    }
-  }
-
-  std::deque<int> larger;
-  for (size_t i = 0; i < pairs.size(); ++i)
-  {
-    if (pairs[i].second != -1)
-      larger.push_back(pairs[i].second);
-  }
-
-  PmergeMe temp;
-  temp._numbersDeq = larger;
-  temp.fordJohnsonDeq();
-  larger = temp._numbersDeq;
-
-  std::deque<int> result = larger;
-  for (size_t i = 0; i < pairs.size(); ++i)
-  {
-    if (pairs[i].first == -1)
-      continue;
-    std::deque<int>::iterator pos =
-    std::lower_bound(result.begin(), result.end(), pairs[i].first);
-    result.insert(pos, pairs[i].first);
-  }
-  
-  _numbersDeq = result;
   return (0);
 }
 
 
 int PmergeMe::fordJohnsonVec()
 {
-  if (_numbersDeq.size() <= 1)
-    return (0);
-  
-  std::vector< std::pair<int, int> > pairs;
-  std::vector<int>::iterator it = _numbersVec.begin();
-
-  while (it != _numbersVec.end())
-  {
-    int first = *it++;
-    if (it != _numbersVec.end())
-    {
-      int second = *it++;
-      if (first > second)
-        std::swap(first, second);
-      pairs.push_back(std::make_pair(first, second));
-    }
-    else
-    {
-      pairs.push_back(std::make_pair(first, -1));
-    }
-  }
-
-  std::vector<int> larger;
-  for (size_t i = 0; i < pairs.size(); ++i)
-  {
-    if (pairs[i].second != -1)
-      larger.push_back(pairs[i].second);
-  }
-
-  PmergeMe temp;
-  temp._numbersVec = larger;
-  temp.fordJohnsonVec();
-  larger = temp._numbersVec;
-
-  std::vector<int> result = larger;
-  for (size_t i = 0; i < pairs.size(); ++i)
-  {
-    if (pairs[i].first == -1)
-      continue;
-    std::vector<int>::iterator pos =
-    std::lower_bound(result.begin(), result.end(), pairs[i].first);
-    result.insert(pos, pairs[i].first);
-  }
-
-  _numbersVec = result;
   return (0);
 }
 
