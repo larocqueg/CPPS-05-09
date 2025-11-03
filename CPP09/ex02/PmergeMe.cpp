@@ -68,8 +68,8 @@ int PmergeMe::parser(std::string arg)
     }
     _dot = 0;
     num = std::strtod(arg.c_str(), NULL);
-    if (num > 1000)
-      throw std::runtime_error("Invalid number, all numbers must be >= 0 or <= 1000");
+    if (num > INT_MAX)
+      throw std::runtime_error("Invalid number, all numbers must be positive integers");
     _numbers.push_back(num);
   }
   return (0);

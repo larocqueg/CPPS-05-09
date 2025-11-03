@@ -23,6 +23,7 @@
 #define GREEN   "\033[32m"
 #define CYAN    "\033[36m"
 #define RESET   "\033[0m"
+#define INT_MAX 2147483647
 
 class PmergeMe
 {
