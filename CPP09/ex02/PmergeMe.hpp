@@ -18,6 +18,8 @@
 #include <vector>
 #include <cstdlib>
 #include <deque>
+#include <ctime>
+#include <utility>
 
 #define RED     "\033[31m"
 #define YELLOW  "\033[33m"
@@ -30,7 +32,7 @@ class PmergeMe
 {
   private:
     std::deque<int>       _numbersDeq;
-    std::vector<double>   _numbersVec;
+    std::vector<int>   _numbersVec;
   public:
     PmergeMe();
     PmergeMe(const PmergeMe& original);
@@ -39,6 +41,7 @@ class PmergeMe
     int   isValid(char c);
     int   parser(std::string arg);
     int   sorting();
-    int   fordJohnson();
+    int   fordJohnsonVec();
+    int   fordJohnsonDeq();
     void  printNums();
 };
