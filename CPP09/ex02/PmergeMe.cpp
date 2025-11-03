@@ -37,16 +37,7 @@ PmergeMe::~PmergeMe()
 
 int PmergeMe::isValid(char c)
 {
-  if (c >= '0' && c <= '9')
-  {
-    return (1);
-  }
-  else if (c == ' ' || c == '\t')
-  {
-    return (1);
-  }
-  else
-    return (0);
+  return ((c >= '0' && c <= '9') || c == ' ' || c == '\t');
 }
 
 int PmergeMe::parser(std::string arg)
@@ -59,24 +50,30 @@ int PmergeMe::parser(std::string arg)
     for (int i = 0; arg[i] != '\0'; i++)
     {
       if (!isValid(arg[i]))
-        throw std::runtime_error("Invalid argument");
+        throw std::runtime_error("Invalid argument, all arguments must be positive integers");
     }
     num = std::strtod(arg.c_str(), NULL);
     if (num > INT_MAX || num < 0)
-      throw std::runtime_error("Invalid number, all numbers must be positive integers");
+      throw std::runtime_error("Invalid argument, all arguments must be positive integers");
     _numbersVec.push_back(num);
   }
   return (0);
 }
 
-void  PmergeMe::printVector()
+void  PmergeMe::printNums()
 {
   for (unsigned long i  = 0; i < _numbersVec.size(); i++)
     std::cout << static_cast<int>(_numbersVec[i]) << " ";
   std::cout << std::endl;
 }
 
-int sorting()
+int PmergeMe::fordJohnson()
 {
+  return (1);
+}
+
+int PmergeMe::sorting()
+{
+  fordJohnson();
   return (0);
 }

@@ -27,7 +27,7 @@ int main(int ac, char **av)
     for (int i = 1; i < ac; i++)
       merge.parser(av[i]);
     //merge.sort();
-    merge.printVector();
+    merge.printNums();
   }
   catch (const std::exception& e)
   {

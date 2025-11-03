@@ -39,5 +39,6 @@ class PmergeMe
     int   isValid(char c);
     int   parser(std::string arg);
     int   sorting();
-    void  printVector();
+    int   fordJohnson();
+    void  printNums();
 };
