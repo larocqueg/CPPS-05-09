@@ -26,8 +26,8 @@ int main(int ac, char **av)
     PmergeMe merge;
     for (int i = 1; i < ac; i++)
       merge.parser(av[i]);
-    merge.printVector();
     //merge.sort();
+    merge.printVector();
   }
   catch (const std::exception& e)
   {

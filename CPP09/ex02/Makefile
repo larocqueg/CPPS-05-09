@@ -6,14 +6,14 @@
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/31 12:13:31 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/31 14:27:05 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/11/03 14:12:00 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = PmergeMe
 
 CC = c++
-FLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -g -Wall -Wextra -Werror -std=c++98
 
 SRCS = main.cpp PmergeMe.cpp
 OBJS_DIR = objs
@@ -23,7 +23,7 @@ OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) -I. $(OBJS) -o $(NAME)
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)

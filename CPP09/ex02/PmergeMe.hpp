@@ -13,6 +13,7 @@
 #pragma once
 
 #include <iostream>
+#include <sstream>
 #include <string>
 #include <vector>
 #include <cstdlib>
@@ -26,15 +27,14 @@
 class PmergeMe
 {
   private:
-    unsigned int _numlen;
-    std::vector<int> _numbers;
+    int                 _dot;
+    std::vector<float>  _numbers;
   public:
     PmergeMe();
     PmergeMe(const PmergeMe& original);
     PmergeMe& operator=(const PmergeMe& original);
     ~PmergeMe();
-    int   isSpace(char c);
-    int   isDigit(char c);
+    int   isValid(char c);
     int   parser(std::string arg);
     void  printVector();
 };

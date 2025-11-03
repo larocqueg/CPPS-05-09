@@ -12,7 +12,7 @@
 
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe()
+PmergeMe::PmergeMe() : _dot(0)
 {
 
 }
@@ -35,35 +35,43 @@ PmergeMe::~PmergeMe()
 {
 }
 
-int  PmergeMe::isDigit(char c)
+int PmergeMe::isValid(char c)
 {
-  if (c >= '1' && c <= '9')
+  if (c >= '0' && c <= '9')
   {
-    this->_numlen++;
     return (1);
   }
-  return (0);
-}
-
-int  PmergeMe::isSpace(char c)
-{
-  if (_numlen >= 1)
-    return (0);
-  if (c == ' ' || c == '\t' || c == '\n' || c == '\r')
+  else if (c == ' ' || c == '\t')
+  {
     return (1);
-  return (0);
+  }
+  else if (c == '.' && _dot == 0)
+  {
+    _dot = 1;
+    return (1);
+  }
+  else
+    return (0);
 }
 
 int PmergeMe::parser(std::string arg)
 {
-  for (int i = 0; arg[i] != '\0'; i++)
+  double            num;
+  std::stringstream ss(arg);
+  
+  while (ss >> arg)
   {
-    if (!isDigit(arg[i]) && !isSpace(arg[i]))
-      throw std::runtime_error("Invalid argument");
+    for (int i = 0; arg[i] != '\0'; i++)
+    {
+      if (!isValid(arg[i]))
+        throw std::runtime_error("Invalid argument");
+    }
+    _dot = 0;
+    num = std::strtod(arg.c_str(), NULL);
+    if (num > 1000)
+      throw std::runtime_error("Invalid number, all numbers must be >= 0 or <= 1000");
+    _numbers.push_back(num);
   }
-  if (_numlen > 10)
-    throw std::runtime_error("Invalid number, only positive integers are allowed");
-  _numbers.push_back(std::atoi(arg.c_str()));
   return (0);
 }
 
