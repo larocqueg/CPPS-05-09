@@ -29,7 +29,7 @@
 class PmergeMe
 {
   private:
-    std::deque<double>       _numbersDeq;
+    std::deque<int>       _numbersDeq;
     std::vector<double>   _numbersVec;
   public:
     PmergeMe();

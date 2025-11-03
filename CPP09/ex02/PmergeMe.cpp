@@ -63,12 +63,13 @@ int PmergeMe::parser(std::string arg)
 void  PmergeMe::printNums()
 {
   for (unsigned long i  = 0; i < _numbersVec.size(); i++)
-    std::cout << static_cast<int>(_numbersVec[i]) << " ";
+    std::cout << (_numbersDeq[i]) << " ";
   std::cout << std::endl;
 }
 
 int PmergeMe::fordJohnson()
 {
+  _numbersDeq = std::deque<int>(_numbersVec.begin(), _numbersVec.end());
   return (1);
 }
 
