@@ -68,7 +68,7 @@ int PmergeMe::parser(std::string arg)
     }
     _dot = 0;
     num = std::strtod(arg.c_str(), NULL);
-    if (num > INT_MAX)
+    if (num > INT_MAX || num < 0)
       throw std::runtime_error("Invalid number, all numbers must be positive integers");
     _numbers.push_back(num);
   }

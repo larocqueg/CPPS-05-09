@@ -29,7 +29,7 @@ class PmergeMe
 {
   private:
     int                 _dot;
-    std::vector<float>  _numbers;
+    std::vector<double>  _numbers;
   public:
     PmergeMe();
     PmergeMe(const PmergeMe& original);
