@@ -6,7 +6,7 @@
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:59:59 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/10/31 15:00:08 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/11/05 13:08:43 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,17 @@ int PmergeMe::isValid(char c)
   return ((c >= '0' && c <= '9') || c == ' ' || c == '\t');
 }
 
+static void binaryInsert(std::vector<int>& vec, int value)
+{
+  std::vector<int>::iterator pos = std::lower_bound(vec.begin(), vec.end(), value);
+  vec.insert(pos, value);
+}
+
+static bool comparePair(const std::pair<int,int>& a, const std::pair<int,int>& b)
+{
+    return (a.second < b.second);
+}
+
 int PmergeMe::parser(std::string arg)
 {
   double            num;
@@ -65,7 +76,9 @@ int PmergeMe::parser(std::string arg)
 void  PmergeMe::printNums()
 {
   for (unsigned long i  = 0; i < _numbersVec.size(); i++)
-    std::cout << (_numbersDeq[i]) << " ";
+  {
+    std::cout << (_numbersVec[i]) << " ";
+  }
   std::cout << std::endl;
 }
 
@@ -77,6 +90,75 @@ int PmergeMe::fordJohnsonDeq()
 
 int PmergeMe::fordJohnsonVec()
 {
+  if (_numbersVec.size() <= 1)
+    return (0);
+
+  int                               leftover = -1;
+  std::vector<int>                  mainChain;
+  std::vector<std::pair<int, int> > pairs;
+
+  for (size_t i = 0; i < _numbersVec.size(); i += 2)
+  {
+    if (i + 1 < _numbersVec.size())
+    {
+      int a = _numbersVec[i];
+      int b = _numbersVec[i + 1];
+      if (a > b)
+      {
+        std::swap(a, b);
+      }
+      pairs.push_back(std::make_pair(a, b));
+    }
+    else
+      leftover = _numbersVec[i];
+  }
+
+  std::sort(pairs.begin(), pairs.end(), comparePair);
+
+  for (size_t i = 0; i < pairs.size(); ++i)
+    mainChain.push_back(pairs[i].second);
+
+  std::vector<size_t> insertionOrder;
+  size_t j1 = 1, j2 = 3;
+
+  insertionOrder.push_back(1);
+  while (j2 <= pairs.size())
+  {
+    insertionOrder.push_back(j2);
+    size_t tmp = j2;
+    j2 = j2 + 2 * j1;
+    j1 = tmp;
+  }
+
+  for (size_t i = 1; i <= pairs.size(); ++i)
+  {
+    bool exists = false;
+    for (size_t j = 0; j < insertionOrder.size(); ++j)
+    {
+      if (insertionOrder[j] == i)
+      {
+        exists = true;
+        break;
+      }
+    }
+    if (!exists)
+      insertionOrder.push_back(i);
+  }
+
+  for (size_t k = 0; k < insertionOrder.size(); ++k)
+  {
+    size_t idx = insertionOrder[k] - 1;
+    if (idx < pairs.size())
+      binaryInsert(mainChain, pairs[idx].first);
+  }
+
+  if (leftover != -1)
+  {
+    binaryInsert(mainChain, leftover);
+  }
+
+  _numbersVec = mainChain;
+
   return (0);
 }
 

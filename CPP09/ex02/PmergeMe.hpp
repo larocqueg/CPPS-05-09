@@ -20,6 +20,7 @@
 #include <deque>
 #include <ctime>
 #include <utility>
+#include <algorithm>
 
 #define RED     "\033[31m"
 #define YELLOW  "\033[33m"
