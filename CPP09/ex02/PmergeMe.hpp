@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/31 14:27:23 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/10/31 14:29:00 by gde-la-r         ###   ########.fr       */
+/*   Created: 2025/10/31 14:59:59 by gde-la-r          #+#    #+#             */
+/*   Updated: 2025/11/05 14:59:09 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class PmergeMe
 {
   private:
     std::deque<int>       _numbersDeq;
-    std::vector<int>   _numbersVec;
+    std::vector<int>      _numbersVec;
   public:
     PmergeMe();
     PmergeMe(const PmergeMe& original);

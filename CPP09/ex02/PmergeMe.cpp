@@ -6,7 +6,7 @@
 /*   By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 14:59:59 by gde-la-r          #+#    #+#             */
-/*   Updated: 2025/11/05 13:08:43 by gde-la-r         ###   ########.fr       */
+/*   Updated: 2025/11/05 14:59:21 by gde-la-r         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ static void binaryInsertDeq(std::deque<int>& deq, int value)
   deq.insert(pos, value);
 }
 
-static bool comparePair(const std::pair<int,int>& a, const std::pair<int,int>& b)
-{
-    return (a.second < b.second);
-}
-
 int PmergeMe::parser(std::string arg)
 {
   double            num;
@@ -88,151 +83,135 @@ void  PmergeMe::printNums()
   std::cout << std::endl;
 }
 
-int PmergeMe::fordJohnsonDeq()
+static std::vector<size_t> generateJacobsthalSequence(size_t n)
 {
-  if (_numbersDeq.size() <= 1)
-    return (0);
-
-  int                               leftover = -1;
-  std::deque<int>                  mainChain;
-  std::deque<std::pair<int, int> > pairs;
-
-  for (size_t i = 0; i < _numbersDeq.size(); i += 2)
+  std::vector<size_t> seq;
+  if (n == 0)
+    return seq;
+  seq.push_back(1);
+  if (n == 1)
+    return seq;
+  size_t j_prev = 1;
+  size_t j_curr = 3;
+  while (j_curr <= n)
   {
-    if (i + 1 < _numbersDeq.size())
-    {
-      int a = _numbersDeq[i];
-      int b = _numbersDeq[i + 1];
-      if (a > b)
-      {
-        std::swap(a, b);
-      }
-      pairs.push_back(std::make_pair(a, b));
-    }
-    else
-      leftover = _numbersVec[i];
+    seq.push_back(j_curr);
+    size_t tmp = j_curr;
+    j_curr = j_curr + 2 * j_prev;
+    j_prev = tmp;
   }
-
-  std::sort(pairs.begin(), pairs.end(), comparePair);
-
-  for (size_t i = 0; i < pairs.size(); ++i)
-    mainChain.push_back(pairs[i].second);
-
-  std::vector<size_t> insertionOrder;
-  size_t j1 = 1, j2 = 3;
-
-  insertionOrder.push_back(1);
-  while (j2 <= pairs.size())
-  {
-    insertionOrder.push_back(j2);
-    size_t tmp = j2;
-    j2 = j2 + 2 * j1;
-    j1 = tmp;
-  }
-
-  for (size_t i = 1; i <= pairs.size(); ++i)
+  for (size_t i = 1; i <= n; ++i)
   {
     bool exists = false;
-    for (size_t j = 0; j < insertionOrder.size(); ++j)
+    for (size_t j = 0; j < seq.size(); ++j)
     {
-      if (insertionOrder[j] == i)
+      if (seq[j] == i)
       {
         exists = true;
         break;
       }
     }
     if (!exists)
-      insertionOrder.push_back(i);
+      seq.push_back(i);
+  }
+  return seq;
+}
+
+static std::vector<int> fordJohnsonRecursiveVec(std::vector<int> arr)
+{
+  if (arr.size() <= 1)
+    return arr;
+
+  int leftover = -1;
+  std::vector<std::pair<int,int> > pairs;
+  for (size_t i = 0; i < arr.size(); i += 2)
+  {
+    if (i + 1 < arr.size())
+    {
+      int a = arr[i];
+      int b = arr[i + 1];
+      if (a > b)
+        std::swap(a, b);
+      pairs.push_back(std::make_pair(a, b));
+    }
+    else
+      leftover = arr[i];
   }
 
+  std::vector<int> larger;
+  for (size_t i = 0; i < pairs.size(); ++i)
+    larger.push_back(pairs[i].second);
+
+  larger = fordJohnsonRecursiveVec(larger);
+
+  std::vector<size_t> insertionOrder = generateJacobsthalSequence(pairs.size());
   for (size_t k = 0; k < insertionOrder.size(); ++k)
   {
     size_t idx = insertionOrder[k] - 1;
     if (idx < pairs.size())
-      binaryInsertDeq(mainChain, pairs[idx].first);
+      binaryInsertVec(larger, pairs[idx].first);
   }
 
   if (leftover != -1)
-  {
-    binaryInsertDeq(mainChain, leftover);
-  }
+    binaryInsertVec(larger, leftover);
 
-  _numbersDeq = mainChain;
-
-  return (0);
+  return larger;
 }
 
 int PmergeMe::fordJohnsonVec()
 {
   if (_numbersVec.size() <= 1)
     return (0);
+  _numbersVec = fordJohnsonRecursiveVec(_numbersVec);
+  return (0);
+}
 
-  int                               leftover = -1;
-  std::vector<int>                  mainChain;
-  std::vector<std::pair<int, int> > pairs;
+static std::deque<int> fordJohnsonRecursiveDeq(std::deque<int> arr)
+{
+  if (arr.size() <= 1)
+    return arr;
 
-  for (size_t i = 0; i < _numbersVec.size(); i += 2)
+  int leftover = -1;
+  std::deque<std::pair<int,int> > pairs;
+  for (size_t i = 0; i < arr.size(); i += 2)
   {
-    if (i + 1 < _numbersVec.size())
+    if (i + 1 < arr.size())
     {
-      int a = _numbersVec[i];
-      int b = _numbersVec[i + 1];
+      int a = arr[i];
+      int b = arr[i + 1];
       if (a > b)
-      {
         std::swap(a, b);
-      }
       pairs.push_back(std::make_pair(a, b));
     }
     else
-      leftover = _numbersVec[i];
+      leftover = arr[i];
   }
 
-  std::sort(pairs.begin(), pairs.end(), comparePair);
-
+  std::deque<int> larger;
   for (size_t i = 0; i < pairs.size(); ++i)
-    mainChain.push_back(pairs[i].second);
+    larger.push_back(pairs[i].second);
 
-  std::vector<size_t> insertionOrder;
-  size_t j1 = 1, j2 = 3;
+  larger = fordJohnsonRecursiveDeq(larger);
 
-  insertionOrder.push_back(1);
-  while (j2 <= pairs.size())
-  {
-    insertionOrder.push_back(j2);
-    size_t tmp = j2;
-    j2 = j2 + 2 * j1;
-    j1 = tmp;
-  }
-
-  for (size_t i = 1; i <= pairs.size(); ++i)
-  {
-    bool exists = false;
-    for (size_t j = 0; j < insertionOrder.size(); ++j)
-    {
-      if (insertionOrder[j] == i)
-      {
-        exists = true;
-        break;
-      }
-    }
-    if (!exists)
-      insertionOrder.push_back(i);
-  }
-
+  std::vector<size_t> insertionOrder = generateJacobsthalSequence(pairs.size());
   for (size_t k = 0; k < insertionOrder.size(); ++k)
   {
     size_t idx = insertionOrder[k] - 1;
     if (idx < pairs.size())
-      binaryInsertVec(mainChain, pairs[idx].first);
+      binaryInsertDeq(larger, pairs[idx].first);
   }
 
   if (leftover != -1)
-  {
-    binaryInsertVec(mainChain, leftover);
-  }
+    binaryInsertDeq(larger, leftover);
 
-  _numbersVec = mainChain;
+  return larger;
+}
 
+int PmergeMe::fordJohnsonDeq()
+{
+  if (_numbersDeq.size() <= 1)
+    return (0);
+  _numbersDeq = fordJohnsonRecursiveDeq(_numbersDeq);
   return (0);
 }
 
