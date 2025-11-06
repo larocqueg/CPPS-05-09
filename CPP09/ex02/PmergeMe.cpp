@@ -241,7 +241,7 @@ int PmergeMe::sorting()
     std::cout << YELLOW << "After: " << RESET;
     printNums();
 
-    std::cout << std::fixed << std::setprecision(4);
+    std::cout << std::fixed << std::setprecision(3);
     std::cout << "\nTime to process range of " << _numbersVec.size()
       << " elements with std::vector : " << GREEN << vecTime << " us" << RESET << std::endl;
 
