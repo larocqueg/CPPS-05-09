@@ -6,7 +6,7 @@
 #    By: gde-la-r <gde-la-r@student.42porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/28 11:08:27 by gde-la-r          #+#    #+#              #
-#    Updated: 2025/10/28 11:08:37 by gde-la-r         ###   ########.fr        #
+#    Updated: 2025/11/06 15:04:01 by gde-la-r         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ OBJS_DIR = objs
 OBJS = $(SRCS:.cpp=.o)
 OBJS := $(addprefix $(OBJS_DIR)/, $(OBJS))
 
-all: $(NAME) input.txt
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
@@ -29,7 +29,7 @@ $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(OBJS_DIR)
 	$(CC) $(FLAGS) -c $< -o $@
 
-input.txt:
+input:
 	@echo "date | value\n\
 2011-01-03 | 3\n\
 2011-01-03 | 2\n\
